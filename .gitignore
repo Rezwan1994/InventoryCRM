@@ -1,0 +1,59 @@
+/.vs/InventoryManagementSystem/v15/Server/sqlite3
+/SmartFleetManagementSystem/bin/*.dll
+/SFMS.Facade/bin/Debug/*.dll
+/IMSRepository/obj/Debug/*.dll
+/IMSRepository/bin/Debug/*.dll
+/IMS.WEB.UI/obj/Debug/*.dll
+/IMS.WEB.UI/bin/*.dll
+/IMS.WEB.UI/bin/roslyn/*.dll
+/IMSRepository/bin/Debug/EntityFramework.xml
+/IMSRepository/bin/Debug/EntityFramework.SqlServer.xml
+/IMS.WEB.UI/bin/System.Web.WebPages.xml
+/IMS.WEB.UI/bin/System.Web.WebPages.Razor.xml
+/IMS.WEB.UI/bin/System.Web.WebPages.Deployment.xml
+/IMS.WEB.UI/bin/System.Web.Razor.xml
+/IMS.WEB.UI/bin/System.Web.Optimization.xml
+/IMS.WEB.UI/bin/System.Web.Mvc.xml
+/IMS.WEB.UI/bin/System.Web.Helpers.xml
+/IMS.WEB.UI/bin/System.Diagnostics.DiagnosticSource.xml
+/IMS.WEB.UI/bin/Newtonsoft.Json.xml
+/IMS.WEB.UI/bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+/IMS.WEB.UI/bin/Microsoft.AspNet.TelemetryCorrelation.xml
+/IMS.WEB.UI/bin/EntityFramework.xml
+/IMS.WEB.UI/bin/EntityFramework.SqlServer.xml
+/SmartFleetManagementSystem/bin/IMSRepository.pdb
+/SFMS.Facade/bin/Debug/IMSRepository.pdb
+/IMSRepository/obj/Debug/IMSRepository.pdb
+/IMSRepository/bin/Debug/SFMS.Entity.pdb
+/IMSRepository/bin/Debug/IMSRepository.pdb
+/IMS.WEB.UI/obj/Debug/IMS.WEB.UI.pdb
+/IMS.WEB.UI/bin/SFMS.Framework.pdb
+/IMS.WEB.UI/bin/SFMS.Facade.pdb
+/IMS.WEB.UI/bin/SFMS.Entity.pdb
+/IMS.WEB.UI/bin/IMSRepository.pdb
+/IMS.WEB.UI/bin/IMS.WEB.UI.pdb
+/IMS.WEB.UI/bin/Antlr3.Runtime.pdb
+/IMS.WEB.UI/bin/roslyn/VBCSCompiler.exe
+/IMS.WEB.UI/bin/roslyn/vbc.exe
+/IMS.WEB.UI/bin/roslyn/csi.exe
+/IMS.WEB.UI/bin/roslyn/csc.exe
+/IMS.WEB.UI/Files/Products/Documents/08-18-19/182668214Picture-2019-07-19 20.48.20.11.jpg
+/IMS.WEB.UI/Files/Products/Documents/08-18-19/529065678Picture-2019-07-19 20.23.49.jpg
+/IMS.WEB.UI/Files/Products/Documents/08-18-19/534361161Picture-2019-07-19 20.48.20.jpg
+/IMS.WEB.UI/Files/Products/Documents/08-18-19/873723848Picture-2019-07-19 20.23.48.23.jpg
+/IMS.WEB.UI/Files/Products/Documents/08-18-19/877642030Picture-2019-07-19 20.23.49.jpg
+/IMS.WEB.UI/Files/Products/Documents/08-18-19/950170108Picture-2019-07-19 20.23.48.23.jpg
+/IMS.WEB.UI/Files/Products/Documents/08-18-19/1138103515Picture-2019-07-19 20.48.20.21.jpg
+/IMS.WEB.UI/Files/Products/Documents/08-18-19/1598583002Picture-2019-07-19 20.48.20.jpg
+/IMS.WEB.UI/Files/Products/Documents/08-18-19/1626039416Picture-2019-07-19 20.48.20.jpg
+/IMS.WEB.UI/Files/Products/Documents/08-19-19/2109272769Picture-2019-07-19 20.48.20.21.jpg
+/IMS.WEB.UI/Files/Products/Documents/08-23-19/419105867Picture-2019-07-19 20.48.20.jpg
+/IMS.WEB.UI/Files/Products/Documents/08-23-19/696556407Picture-2019-07-19 20.23.49.jpg
+/IMS.WEB.UI/Files/Products/Documents/08-23-19/1886201596Picture-2019-07-19 20.23.49.jpg
+/IMS.WEB.UI/obj/Release/*.cache
+/IMSRepository/obj/Release/*.cache
+/SFMS.Entity/obj/Release/*.cache
+/SFMS.Facade/obj/Release/*.cache
+/SFMS.Framework/obj/Debug/*.cache
+/SFMS.Framework/obj/Release/*.cache
+/SmartFleetManagementSystem/obj/Release/*.cache

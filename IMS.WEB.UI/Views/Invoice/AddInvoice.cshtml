@@ -1,0 +1,485 @@
+﻿
+@{
+    Layout = null;
+    string Currency = "৳";
+}
+@model SFMS.Entity.SalesOrderModel
+
+
+<script src="~/Content/Js/AddInvoice/Addinvoice2.js"></script>
+<script>
+    var SalesOrderId = '@Model.SalesOrder.SalesOrderId';
+    var CustomerId = '@ViewBag.CustomerId';
+    var SalesOrderIdInt = '@Model.SalesOrder.Id';
+    var BalanceDue = '@Model.SalesOrder.Amount';
+    var DefaultDate = '@DateTime.Now.ToString("MM/dd/yyyy")';
+    $(document).ready(function () {
+        if(SalesOrderId != '')
+        {
+            $("#paymentdate").val(DefaultDate);
+            $(".DeliveryDate").val(DefaultDate);
+            $(".OrderDate").val(DefaultDate);
+        }
+       
+
+    })
+   
+</script>
+
+
+<link href="~/Content/Css/Invoice/AddInvoice.css" rel="stylesheet" />
+<style>
+    .invoie_contents_scroll {
+        overflow-y: scroll;
+        height: 630px;
+    }
+    td, th{
+        padding:5px;
+    }
+    tr.spaceUnder > td {
+        padding-bottom: 1em;
+    }
+</style>
+
+@*<button class="settings-invoice" data-toggle="dropdown"><i class="fa fa-cog" aria-hidden="true"></i></button>*@
+
+<div class="add-invoice-container">
+    <div class="div-header clearfix">
+        <div class="header-title" style="background-color:#00467A;color:white">
+            <span class="custom-title-span">
+
+            </span>
+        </div>
+    </div>
+    <div class="invoie_contents_scroll">
+        <div class="invoice_info_container">
+            <table class="table-responsive width-100p infotable">
+                <thead>
+                    <tr>
+                        @*<th>Invoice Info</th>*@
+                        <th width="15%"></th>
+                        <th width="20%"></th>
+                        <th width="30%"></th>
+                        @*<th>Payment Info</th>*@
+                        <th width="15%"></th>
+                        <th width="20%"></th>
+                    </tr>
+
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <label>Customer</label>
+                        </td>
+                        <td> : Mark Henry</td>
+                        <td></td>
+                        <td style="padding-left:35px">
+                            <label>Payment Date</label>
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" id="paymentdate" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="span-style">Order Date</span>
+                        </td>
+                        <td>
+                            <input type="text" value="@Model.SalesOrder.OrderDate" class="form-control OrderDate" />
+                        </td>
+                        <td></td>
+                        <td style="padding-left:35px">
+                            <span class="span-style">Payment Amount</span>
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" id="paymentamount" />
+                        </td>
+                    </tr>
+                    <tr style="border-bottom: 1px dashed;" class="spaceUnder">
+                        <td>
+                            <span class="span-style">Delivery Date</span>
+                        </td>
+                        <td>
+                            <input type="text" value="@Model.SalesOrder.DelivaryDate" class="form-control DeliveryDate" />
+                        </td>
+                        <td></td>
+                        <td style="padding-left:35px">
+                            <span class="span-style">Note</span>
+                        </td>
+                        <td>
+                            <textarea id="paymentnote" class="form-control" ></textarea>
+                        </td>
+                    </tr>
+                    @*<tr style="padding-top:35px; border-bottom:1px dashed">
+                        <td colspan="2" align="right">
+                            <div class="form-group clearfix width-50p">
+                                <span class="span-style">Warehouse Name</span>
+                            </div>
+                        </td>
+                        <td colspan="2">
+                            @Html.DropDownList("warehouse", ViewBag.WarehouseList as List<SelectListItem>, new { @class = "form-control" })
+                        </td>
+                        <td></td>
+                    </tr>*@
+                </tbody>
+            </table>
+            @*<div class="width_100p">
+
+                <div class="balance-info balance_info_for_desktop">
+                    <div>
+                        <span class="span-style balance-info-due">Total</span>
+                        @*<span class="span-style balance-info-paid">Balance paid</span>
+
+                    </div>
+                    <span class="amount amount-span-style big-amount-top amount-big">@Model.SalesOrder.Amount </span>
+
+                    @*<div class="balance-info-paid PaidDivClass">
+                            <span>PAID</span>
+                        </div>
+                    <div class="balance-info-Cancel CancelDivClass">
+                        <span></span>
+                    </div>
+                </div>
+
+
+                <div class="invoice-info-left-70p top_pad_for_add_invoice invoice_billing_info">
+
+
+
+                </div>
+
+            </div>*@
+
+        </div>
+
+        <div class="div-body-contents">
+            <div class="invoice-informations">
+                <div class="add_invoice_table_style">
+                    <table class="CustomerInvoiceTab" id="CustomerInvoiceTab">
+                        <thead style="background-color:#00467A;color:white">
+                            <tr>
+                                <th class="thead-th-style1 tab-index">
+                                    <span>
+
+                                    </span>
+                                </th>
+                                <th class="thead-th-style1 tab-Product">
+                                    <span>
+                                        Product/Service
+                                    </span>
+                                </th>
+                                @*<th class="thead-th-style2 tab-Desc">
+                                    <span>
+                                        Warehouse
+                                    </span>
+                                </th>*@
+                                <th class="thead-th-style2 tab-Quantity">
+                                    <span>
+                                        QTY
+                                    </span>
+                                </th>
+                                <th class="thead-th-style2 tab-Rate">
+                                    <span>
+                                        Rate
+                                    </span>
+                                </th>
+                                <th class="thead-th-style2 tab-Amount">
+                                    <span>
+                                        Amount
+                                    </span>
+                                </th>
+                                <th class="thead-th-style2 tab-Action">
+
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model.SalesOrderDetailList.Count > 0)
+                            {
+                                foreach (var item in Model.SalesOrderDetailList)
+                                {
+                                    <tr data-id="@item.ProductId" class="HasItem">
+                                        <td valign="top"></td>
+                                        <td valign="top">
+                                            <input type="text" class="ProductName" value="@item.ProductName" onkeydown="SearchKeyDown(this,event)" onkeyup="SearchKeyUp(this,event)" />
+                                            <div class='tt-menu'><div class='tt-dataset tt-dataset-autocomplete'> </div> </div>
+                                            <span class="spnProductName">@item.ProductName</span>
+                                        </td>
+                                        @*<td valign="top">
+                                            <input type="text" onkeydown='OthersKeyDown(this,event)' value="@item.WarehouseId" class="txtProductDesc" />
+                                            <span class="spnProductDesc">@item.WarehouseName</span>
+                                        </td>*@
+                                        <td valign="top">
+                                            <input type="text" onkeydown='OthersKeyDown(this,event)' value="@item.Quantity" class="txtProductQuantity" />
+                                            <span class="spnProductQuantity">@item.Quantity</span>
+                                        </td>
+                                        <td valign="top">
+                                            <div class="C_S I_G">
+                                                <input type="text" onkeydown='OthersKeyDown(this,event)' class="txtProductRate" value="@item.Price" />
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">@Currency</div>
+                                                </div>
+                                            </div>
+                                            <span class="spnProductRate">@item.Price @Currency</span>
+                                        </td>
+                                        <td valign="top">
+                                            <div class="C_S I_G">
+                                                <input type="text" onkeydown='OthersKeyDown(this,event)' class="txtProductAmount" value="@item.Total" />
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">@Currency</div>
+                                                </div>
+                                            </div>
+                                            <span class="spnProductAmount">@item.Total @Currency</span>
+                                        </td>
+                                        <td valign="top" class="tableActions">
+                                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td valign="top"></td>
+                                    <td valign="top">
+                                        <input type="text" class="ProductName" onkeydown="SearchKeyDown(this,event)" onkeyup="SearchKeyUp(this,event)" />
+                                        <div class='tt-menu'><div class='tt-dataset tt-dataset-autocomplete'> </div> </div>
+                                        <span class="spnProductName"></span>
+                                    </td>
+                                    @*<td valign="top">
+                                        <input type="text" onkeydown='OthersKeyDown(this,event)' class="txtProductDesc" />
+                                        <span class="spnProductDesc"></span>
+                                    </td>*@
+                                    <td valign="top">
+                                        <input type="text" onkeydown='OthersKeyDown(this,event)' class="txtProductQuantity" />
+                                        <span class="spnProductQuantity"></span>
+                                    </td>
+                                    <td valign="top">
+                                        <div class="C_S I_G">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text">@Currency</div>
+                                            </div>
+                                            <input type="text" onkeydown='OthersKeyDown(this,event)' class="txtProductRate" />
+                                        </div>
+
+                                        <span class="spnProductRate"></span>
+                                    </td>
+                                    <td valign="top">
+                                        <div class="C_S I_G">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text">@Currency</div>
+                                            </div>
+                                            <input type="text" onkeydown='OthersKeyDown(this,event)' class="txtProductAmount" />
+                                        </div>
+
+                                        <span class="spnProductAmount"></span>
+                                    </td>
+                                    <td valign="top" class="tableActions">
+                                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td valign="top"></td>
+                                    <td valign="top">
+                                        <input type="text" class="ProductName" onkeydown="SearchKeyDown(this,event)" onkeyup="SearchKeyUp(this,event)" />
+                                        <div class='tt-menu'><div class='tt-dataset tt-dataset-autocomplete'> </div> </div>
+                                        <span class="spnProductName"></span>
+                                    </td>
+                                    @*<td valign="top">
+                                        <input type="text" onkeydown='OthersKeyDown(this,event)' class="txtProductDesc" />
+                                        <span class="spnProductDesc"></span>
+                                    </td>*@
+                                    <td valign="top">
+                                        <input type="text" onkeydown='OthersKeyDown(this,event)' class="txtProductQuantity" />
+                                        <span class="spnProductQuantity"></span>
+                                    </td>
+                                    <td valign="top">
+                                        <div class="C_S I_G">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text">@Currency</div>
+                                            </div>
+                                            <input type="text" onkeydown='OthersKeyDown(this,event)' class="txtProductRate" />
+                                        </div>
+
+                                        <span class="spnProductRate"></span>
+                                    </td>
+                                    <td valign="top">
+                                        <div class="C_S I_G">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text">@Currency</div>
+                                            </div>
+                                            <input type="text" onkeydown='OthersKeyDown(this,event)' class="txtProductAmount" />
+                                        </div>
+
+                                        <span class="spnProductAmount"></span>
+                                    </td>
+                                    <td valign="top" class="tableActions">
+                                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                    </td>
+                                </tr>
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="OtherInfos">
+
+                    <div class="col-md-12">
+
+                        @*<div class="row">*@
+                        @*<div class="col-md-12">
+            <div class="Discount discount-amount-div row margin-TB-5p" style="float:right;">
+                <div class="col-xs-3">
+
+                    <span class="discount_text_custom">Discount(%) </span>
+                </div>
+                <div class="col-xs-6">
+
+                    <input type="text" id="discountAmount" value="@Model.SalesOrder.DiscountAmount" class="float-right form-control" />
+
+                </div>
+
+            </div>
+        </div>*@
+
+                        @*@if (Model.SalesOrder.Id > 0)
+        {*@
+                        @*<div class="col-md-12">
+            <div class="col-xs-3">
+
+                <span class="span-style Subtotal_text_custom">Sub Total</span>
+            </div>
+            <div class="col-xs-6">
+
+                <span>@Model.SalesOrder.SubTotal</span>
+
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="col-xs-3">
+
+                <span class="span-style Paid_text_custom">Paid</span>
+            </div>
+            <div class="col-xs-6">
+
+                <span>@Model.SalesOrder.PaymentAmount</span>
+
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="col-xs-3">
+
+                <span class="span-style Total_text_custom">Total</span>
+            </div>
+            <div class="col-xs-6">
+
+                <span>@Model.SalesOrder.Amount</span>
+
+            </div>
+        </div>*@
+
+                        <table style="margin-left:140px;">
+                            <thead>
+                                <tr>
+                                    <th width="15%"></th>
+                                    <th width="20%"></th>
+                                    <th width="30%"></th>
+                                    <th width="15%"></th>
+                                    <th width="20%"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <span class="span-style Subtotal_text_custom">Sub Total</span>
+                                    </td>
+                                    <td align="right">
+                                        <span class="amount">@Model.SalesOrder.Total @Currency</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td style="float:left">
+                                        <span class="span-style discount_text_custom">Discount(%) </span>
+                                    </td>
+                                    <td align="right">
+                                        <input type="text" id="discountAmount" value="@Model.SalesOrder.DiscountAmount" class="float-right form-control" />
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <span class="span-style Subtotal_text_custom">
+                                            Shipping/Handling
+                                        </span>
+                                    </td>
+                                    <td align="right">
+                                        <input type="text" value="@Model.SalesOrder.Freight" class="float-right form-control" id="shippingCost">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <span class="span-style Subtotal_text_custom">
+                                            Sub Total
+                                        </span>
+                                    </td>
+                                    <td align="right">
+                                        <span class="balanceDueAmount">@Model.SalesOrder.Amount @Currency</span>
+                                    </td>
+                                </tr>
+                                <tr style="border-bottom:1px dashed">
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <span class="span-style Subtotal_text_custom">Paid</span>
+                                    </td>
+                                    <td align="right">
+                                        <span>@Model.SalesOrder.PaymentAmount @Currency</span>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                        <div style=" float: right; width: 32.5%;" >
+                            <span class="span-style Subtotal_text_custom"style="color:red;width: 297px;float:left;">Unpaid Amount</span>
+                            <span class="span-style">@Model.SalesOrder.SubTotal @Currency</span>
+                        </div>
+                     
+                        @*}*@
+                    </div>
+                    @*</div>*@
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="invoice-footer col-md-12" style="background-color:#00467A;color:white">
+
+        <div class="SaveaButtonsDiv">
+            <button class="btnInv InvoiceSaveButton">Create</button>
+        </div>
+    </div>
+    <div class="AddInvoiceLoader hidden">
+        <div class='invoice-loader'><div class='uil-squares-css' style='transform:scale(1); margin:auto;'><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div></div></div>
+    </div>
+
+
+
+
+

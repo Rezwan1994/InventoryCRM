@@ -1,0 +1,30 @@
+D:\Clouds\Mega Cloud\Cloud Drive\ClientTask\IMS\Collections\InventoryManagementSystem\IMSRepository\bin\Debug\IMSRepository.dll.config
+D:\Clouds\Mega Cloud\Cloud Drive\ClientTask\IMS\Collections\InventoryManagementSystem\IMSRepository\bin\Debug\IMSRepository.dll
+D:\Clouds\Mega Cloud\Cloud Drive\ClientTask\IMS\Collections\InventoryManagementSystem\IMSRepository\bin\Debug\IMSRepository.pdb
+D:\Clouds\Mega Cloud\Cloud Drive\ClientTask\IMS\Collections\InventoryManagementSystem\IMSRepository\bin\Debug\EntityFramework.dll
+D:\Clouds\Mega Cloud\Cloud Drive\ClientTask\IMS\Collections\InventoryManagementSystem\IMSRepository\bin\Debug\EntityFramework.SqlServer.dll
+D:\Clouds\Mega Cloud\Cloud Drive\ClientTask\IMS\Collections\InventoryManagementSystem\IMSRepository\bin\Debug\SFMS.Entity.dll
+D:\Clouds\Mega Cloud\Cloud Drive\ClientTask\IMS\Collections\InventoryManagementSystem\IMSRepository\bin\Debug\SFMS.Entity.pdb
+D:\Clouds\Mega Cloud\Cloud Drive\ClientTask\IMS\Collections\InventoryManagementSystem\IMSRepository\bin\Debug\SFMS.Entity.dll.config
+D:\Clouds\Mega Cloud\Cloud Drive\ClientTask\IMS\Collections\InventoryManagementSystem\IMSRepository\bin\Debug\EntityFramework.xml
+D:\Clouds\Mega Cloud\Cloud Drive\ClientTask\IMS\Collections\InventoryManagementSystem\IMSRepository\bin\Debug\EntityFramework.SqlServer.xml
+D:\Clouds\Mega Cloud\Cloud Drive\ClientTask\IMS\Collections\InventoryManagementSystem\IMSRepository\obj\Debug\IMSRepository.csprojAssemblyReference.cache
+D:\Clouds\Mega Cloud\Cloud Drive\ClientTask\IMS\Collections\InventoryManagementSystem\IMSRepository\obj\Debug\IMSRepository.csproj.CoreCompileInputs.cache
+D:\Clouds\Mega Cloud\Cloud Drive\ClientTask\IMS\Collections\InventoryManagementSystem\IMSRepository\obj\Debug\IMSRepository.csproj.CopyComplete
+D:\Clouds\Mega Cloud\Cloud Drive\ClientTask\IMS\Collections\InventoryManagementSystem\IMSRepository\obj\Debug\IMSRepository.dll
+D:\Clouds\Mega Cloud\Cloud Drive\ClientTask\IMS\Collections\InventoryManagementSystem\IMSRepository\obj\Debug\IMSRepository.pdb
+E:\InventoryManagementSystem-master\InventoryManagementSystem-master\IMSRepository\bin\Debug\IMSRepository.dll.config
+E:\InventoryManagementSystem-master\InventoryManagementSystem-master\IMSRepository\bin\Debug\IMSRepository.dll
+E:\InventoryManagementSystem-master\InventoryManagementSystem-master\IMSRepository\bin\Debug\IMSRepository.pdb
+E:\InventoryManagementSystem-master\InventoryManagementSystem-master\IMSRepository\bin\Debug\EntityFramework.dll
+E:\InventoryManagementSystem-master\InventoryManagementSystem-master\IMSRepository\bin\Debug\EntityFramework.SqlServer.dll
+E:\InventoryManagementSystem-master\InventoryManagementSystem-master\IMSRepository\bin\Debug\SFMS.Entity.dll
+E:\InventoryManagementSystem-master\InventoryManagementSystem-master\IMSRepository\bin\Debug\SFMS.Entity.pdb
+E:\InventoryManagementSystem-master\InventoryManagementSystem-master\IMSRepository\bin\Debug\SFMS.Entity.dll.config
+E:\InventoryManagementSystem-master\InventoryManagementSystem-master\IMSRepository\bin\Debug\EntityFramework.xml
+E:\InventoryManagementSystem-master\InventoryManagementSystem-master\IMSRepository\bin\Debug\EntityFramework.SqlServer.xml
+E:\InventoryManagementSystem-master\InventoryManagementSystem-master\IMSRepository\obj\Debug\IMSRepository.csprojAssemblyReference.cache
+E:\InventoryManagementSystem-master\InventoryManagementSystem-master\IMSRepository\obj\Debug\IMSRepository.csproj.CoreCompileInputs.cache
+E:\InventoryManagementSystem-master\InventoryManagementSystem-master\IMSRepository\obj\Debug\IMSRepository.csproj.CopyComplete
+E:\InventoryManagementSystem-master\InventoryManagementSystem-master\IMSRepository\obj\Debug\IMSRepository.dll
+E:\InventoryManagementSystem-master\InventoryManagementSystem-master\IMSRepository\obj\Debug\IMSRepository.pdb

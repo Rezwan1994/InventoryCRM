@@ -1,0 +1,50 @@
+D:\CodeVehicle\trunk\SFMS.Facade\bin\Debug\SFMS.Facade.dll.config
+D:\CodeVehicle\trunk\SFMS.Facade\bin\Debug\SFMS.Facade.dll
+D:\CodeVehicle\trunk\SFMS.Facade\bin\Debug\SFMS.Facade.pdb
+D:\CodeVehicle\trunk\SFMS.Facade\bin\Debug\EntityFramework.dll
+D:\CodeVehicle\trunk\SFMS.Facade\bin\Debug\EntityFramework.SqlServer.dll
+D:\CodeVehicle\trunk\SFMS.Facade\bin\Debug\SFMS.Entity.dll
+D:\CodeVehicle\trunk\SFMS.Facade\bin\Debug\SFMS.Repository.dll
+D:\CodeVehicle\trunk\SFMS.Facade\bin\Debug\SFMS.Entity.pdb
+D:\CodeVehicle\trunk\SFMS.Facade\bin\Debug\SFMS.Repository.pdb
+D:\CodeVehicle\trunk\SFMS.Facade\bin\Debug\EntityFramework.xml
+D:\CodeVehicle\trunk\SFMS.Facade\bin\Debug\EntityFramework.SqlServer.xml
+D:\CodeVehicle\trunk\SFMS.Facade\obj\Debug\SFMS.Facade.csprojResolveAssemblyReference.cache
+D:\CodeVehicle\trunk\SFMS.Facade\obj\Debug\SFMS.Facade.dll
+D:\CodeVehicle\trunk\SFMS.Facade\obj\Debug\SFMS.Facade.pdb
+D:\Clouds\Mega Cloud\Cloud Drive\ClientTask\IMS\Collections\InventoryManagementSystem\SFMS.Facade\obj\Debug\SFMS.Facade.csprojAssemblyReference.cache
+D:\Clouds\Mega Cloud\Cloud Drive\ClientTask\IMS\Collections\InventoryManagementSystem\SFMS.Facade\obj\Debug\SFMS.Facade.csproj.CoreCompileInputs.cache
+D:\Clouds\Mega Cloud\Cloud Drive\ClientTask\IMS\Collections\InventoryManagementSystem\SFMS.Facade\bin\Debug\SFMS.Facade.dll.config
+D:\Clouds\Mega Cloud\Cloud Drive\ClientTask\IMS\Collections\InventoryManagementSystem\SFMS.Facade\bin\Debug\SFMS.Facade.dll
+D:\Clouds\Mega Cloud\Cloud Drive\ClientTask\IMS\Collections\InventoryManagementSystem\SFMS.Facade\bin\Debug\SFMS.Facade.pdb
+D:\Clouds\Mega Cloud\Cloud Drive\ClientTask\IMS\Collections\InventoryManagementSystem\SFMS.Facade\bin\Debug\EntityFramework.dll
+D:\Clouds\Mega Cloud\Cloud Drive\ClientTask\IMS\Collections\InventoryManagementSystem\SFMS.Facade\bin\Debug\EntityFramework.SqlServer.dll
+D:\Clouds\Mega Cloud\Cloud Drive\ClientTask\IMS\Collections\InventoryManagementSystem\SFMS.Facade\bin\Debug\IMSRepository.dll
+D:\Clouds\Mega Cloud\Cloud Drive\ClientTask\IMS\Collections\InventoryManagementSystem\SFMS.Facade\bin\Debug\SFMS.Entity.dll
+D:\Clouds\Mega Cloud\Cloud Drive\ClientTask\IMS\Collections\InventoryManagementSystem\SFMS.Facade\bin\Debug\IMSRepository.pdb
+D:\Clouds\Mega Cloud\Cloud Drive\ClientTask\IMS\Collections\InventoryManagementSystem\SFMS.Facade\bin\Debug\IMSRepository.dll.config
+D:\Clouds\Mega Cloud\Cloud Drive\ClientTask\IMS\Collections\InventoryManagementSystem\SFMS.Facade\bin\Debug\SFMS.Entity.pdb
+D:\Clouds\Mega Cloud\Cloud Drive\ClientTask\IMS\Collections\InventoryManagementSystem\SFMS.Facade\bin\Debug\SFMS.Entity.dll.config
+D:\Clouds\Mega Cloud\Cloud Drive\ClientTask\IMS\Collections\InventoryManagementSystem\SFMS.Facade\bin\Debug\EntityFramework.xml
+D:\Clouds\Mega Cloud\Cloud Drive\ClientTask\IMS\Collections\InventoryManagementSystem\SFMS.Facade\bin\Debug\EntityFramework.SqlServer.xml
+D:\Clouds\Mega Cloud\Cloud Drive\ClientTask\IMS\Collections\InventoryManagementSystem\SFMS.Facade\obj\Debug\SFMS.Facade.csproj.CopyComplete
+D:\Clouds\Mega Cloud\Cloud Drive\ClientTask\IMS\Collections\InventoryManagementSystem\SFMS.Facade\obj\Debug\SFMS.Facade.dll
+D:\Clouds\Mega Cloud\Cloud Drive\ClientTask\IMS\Collections\InventoryManagementSystem\SFMS.Facade\obj\Debug\SFMS.Facade.pdb
+E:\InventoryManagementSystem-master\InventoryManagementSystem-master\SFMS.Facade\bin\Debug\SFMS.Facade.dll.config
+E:\InventoryManagementSystem-master\InventoryManagementSystem-master\SFMS.Facade\bin\Debug\SFMS.Facade.dll
+E:\InventoryManagementSystem-master\InventoryManagementSystem-master\SFMS.Facade\bin\Debug\SFMS.Facade.pdb
+E:\InventoryManagementSystem-master\InventoryManagementSystem-master\SFMS.Facade\bin\Debug\EntityFramework.dll
+E:\InventoryManagementSystem-master\InventoryManagementSystem-master\SFMS.Facade\bin\Debug\EntityFramework.SqlServer.dll
+E:\InventoryManagementSystem-master\InventoryManagementSystem-master\SFMS.Facade\bin\Debug\IMSRepository.dll
+E:\InventoryManagementSystem-master\InventoryManagementSystem-master\SFMS.Facade\bin\Debug\SFMS.Entity.dll
+E:\InventoryManagementSystem-master\InventoryManagementSystem-master\SFMS.Facade\bin\Debug\IMSRepository.pdb
+E:\InventoryManagementSystem-master\InventoryManagementSystem-master\SFMS.Facade\bin\Debug\IMSRepository.dll.config
+E:\InventoryManagementSystem-master\InventoryManagementSystem-master\SFMS.Facade\bin\Debug\SFMS.Entity.pdb
+E:\InventoryManagementSystem-master\InventoryManagementSystem-master\SFMS.Facade\bin\Debug\SFMS.Entity.dll.config
+E:\InventoryManagementSystem-master\InventoryManagementSystem-master\SFMS.Facade\bin\Debug\EntityFramework.xml
+E:\InventoryManagementSystem-master\InventoryManagementSystem-master\SFMS.Facade\bin\Debug\EntityFramework.SqlServer.xml
+E:\InventoryManagementSystem-master\InventoryManagementSystem-master\SFMS.Facade\obj\Debug\SFMS.Facade.csprojAssemblyReference.cache
+E:\InventoryManagementSystem-master\InventoryManagementSystem-master\SFMS.Facade\obj\Debug\SFMS.Facade.csproj.CoreCompileInputs.cache
+E:\InventoryManagementSystem-master\InventoryManagementSystem-master\SFMS.Facade\obj\Debug\SFMS.Facade.csproj.CopyComplete
+E:\InventoryManagementSystem-master\InventoryManagementSystem-master\SFMS.Facade\obj\Debug\SFMS.Facade.dll
+E:\InventoryManagementSystem-master\InventoryManagementSystem-master\SFMS.Facade\obj\Debug\SFMS.Facade.pdb
