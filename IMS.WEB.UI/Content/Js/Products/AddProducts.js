@@ -4,6 +4,7 @@ var SaveUsers = function () {
     var Param = {
         "Id": $("#IdVal").val(),
         "ProductName": $("#ProductName").val(),
+        "ProductNameBangla": $("#ProductNameBangla").val(),
         "Category": $(".Category").val(),
         "SubCategory": $("#SubCategory").val(),
         "BuyingPrice": $("#BuyingPrice").val(),

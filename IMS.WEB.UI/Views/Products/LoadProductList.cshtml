@@ -161,29 +161,30 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    <a id="edit" class="cus-anchor" onclick="EditUser(@item.Id)">@item.ProductName (@item.Category @*- @item.SubCategory*@)</a>
-                </td>
-                <td>
-                    <span>
-                        <img id="myImg" src="@item.ImageUrl" alt="Snow" style="width:100%;max-width:100px; height:100px" onclick="zoomImg(this.src)">
-                    </span>
-                </td>
-                <td>
-                    <span>@item.BuyingPrice</span>
-                </td>
-                <td>
-                    <span>@item.SellingPrice</span>
-                </td>
-                <td>
-                    <span>@item.Quantity</span>
-                </td>
-                <td class="cplp_info_allign">
-                    <a class="delete-package-Device" idval="@item.Id" id="" onclick="EditUser(@item.Id)"><i class="fa fa-edit"></i></a> |
-                    <a class="delete-package-Device" idval="@item.Id" id="" onclick="DeleteUserConfirm(@item.Id)"><i class="fa fa-trash-o"></i></a>
-                </td>
-            </tr>
+            var productNameBangla = !string.IsNullOrEmpty(item.ProductNameBangla) ? ("(" + item.ProductNameBangla + ")") : string.Empty;
+        <tr>
+            <td>
+                <a id="edit" class="cus-anchor" onclick="EditUser(@item.Id)">@item.ProductName  @productNameBangla (@item.Category @*- @item.SubCategory*@)</a>
+            </td>
+            <td>
+                <span>
+                    <img id="myImg" src="@item.ImageUrl" alt="Snow" style="width:100%;max-width:100px; height:100px" onclick="zoomImg(this.src)">
+                </span>
+            </td>
+            <td>
+                <span>@item.BuyingPrice</span>
+            </td>
+            <td>
+                <span>@item.SellingPrice</span>
+            </td>
+            <td>
+                <span>@item.Quantity</span>
+            </td>
+            <td class="cplp_info_allign">
+                <a class="delete-package-Device" idval="@item.Id" id="" onclick="EditUser(@item.Id)"><i class="fa fa-edit"></i></a> |
+                <a class="delete-package-Device" idval="@item.Id" id="" onclick="DeleteUserConfirm(@item.Id)"><i class="fa fa-trash-o"></i></a>
+            </td>
+        </tr>
         }
     </tbody>
 
