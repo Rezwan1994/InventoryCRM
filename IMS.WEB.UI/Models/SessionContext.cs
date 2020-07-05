@@ -16,7 +16,7 @@ namespace IMS.WEB.UI.Models
             if (userData != null)
                 data = new JavaScriptSerializer().Serialize(userData);
 
-            FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1, name, DateTime.Now, DateTime.Now.AddYears(1), isPersistant, userData.UserId.ToString());
+            FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1, name, DateTime.Now, DateTime.Now.AddYears(1), isPersistant, userData.ToString());
 
             string cookieData = FormsAuthentication.Encrypt(ticket);
             HttpCookie cookie = new HttpCookie(FormsAuthentication.FormsCookieName, cookieData)
@@ -28,7 +28,7 @@ namespace IMS.WEB.UI.Models
             HttpContext.Current.Response.Cookies.Add(cookie);
         }
 
-        public UserLogin GetUserData()
+        public static UserLogin GetUserData()
         {
             UserLogin userData = null;
 

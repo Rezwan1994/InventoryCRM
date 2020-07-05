@@ -26,8 +26,8 @@ namespace IMSRepository
 
             if (!string.IsNullOrWhiteSpace(filter.SearchText))
             {
-                searchTextQuery = " c.ProductName like '%" + filter.SearchText + "%' or c.Category like '%" + filter.SearchText + "%' or c.SubCategory like '%" + filter.SearchText + "%' or c.Quantity like '%" + filter.SearchText + "%' and ";
-                CountTextQuery = " where c.ProductName like '%" + filter.SearchText + "%' or c.Category like '%" + filter.SearchText + "%' or c.SubCategory like '%" + filter.SearchText + "%' or c.Quantity like '%" + filter.SearchText + "%' ";
+                searchTextQuery = " c.ProductNameBangla like '%" + filter.SearchText + "%' or  c.ProductName like '%" + filter.SearchText + "%' or c.Category like '%" + filter.SearchText + "%' or c.SubCategory like '%" + filter.SearchText + "%' or c.Quantity like '%" + filter.SearchText + "%' and ";
+                CountTextQuery = " where c.ProductNameBangla like '%" + filter.SearchText + "%' or c.ProductName like '%" + filter.SearchText + "%' or c.Category like '%" + filter.SearchText + "%' or c.SubCategory like '%" + filter.SearchText + "%' or c.Quantity like '%" + filter.SearchText + "%' ";
             }
 
             string rawQuery = @"  
@@ -123,8 +123,8 @@ namespace IMSRepository
 
             if (!string.IsNullOrWhiteSpace(filter.SearchText))
             {
-                searchTextQuery = " P.ProductName like '%" + filter.SearchText + "%' or P.Category like '%" + filter.SearchText + "%' or P.SubCategory like '%" + filter.SearchText + "%' or c.Quantity like '%" + filter.SearchText + "%' or W.WarehouseName like '%" + filter.SearchText + "%' and ";
-                CountTextQuery = " where P.ProductName like '%" + filter.SearchText + "%' or P.Category like '%" + filter.SearchText + "%' or P.SubCategory like '%" + filter.SearchText + "%' or c.Quantity like '%" + filter.SearchText + "%' or W.WarehouseName like '%" + filter.SearchText + "%' ";
+                searchTextQuery = "P.ProductNameBangla like '%" +filter.SearchText + "%' or P.ProductName like '%" + filter.SearchText + "%' or P.Category like '%" + filter.SearchText + "%' or P.SubCategory like '%" + filter.SearchText + "%' or c.Quantity like '%" + filter.SearchText + "%' or W.WarehouseName like '%" + filter.SearchText + "%' and ";
+                CountTextQuery = " where P.ProductNameBangla like '%" + filter.SearchText + "%' or P.ProductName like '%" + filter.SearchText + "%' or P.Category like '%" + filter.SearchText + "%' or P.SubCategory like '%" + filter.SearchText + "%' or c.Quantity like '%" + filter.SearchText + "%' or W.WarehouseName like '%" + filter.SearchText + "%' ";
             }
 
             string rawQuery = @"  
@@ -196,7 +196,7 @@ namespace IMSRepository
                     context.Database.Connection.Close();
                     context = DataContext.getInstance();
                 }
-                return context.Set<Product>().Where(x => x.ProductName.ToLower().Contains(ProductName.ToLower())).ToList();
+                return context.Set<Product>().Where(x => x.ProductName.ToLower().Contains(ProductName.ToLower()) || x.ProductNameBangla.Contains(ProductName)).ToList();
 
             }
             catch(Exception ex)

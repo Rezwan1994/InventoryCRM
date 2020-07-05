@@ -27,19 +27,21 @@ namespace IMS.WEB.UI.Controllers
             pWMFacade = new PWMFacade(Context);
             lookupFacade = new LookUpFacade(Context);
         }
+        [Authorize]
         public ActionResult Index()
         {
             return View();
         }
 
         // GET: Products/Details/5
+        [Authorize]
         public ActionResult ProductsPartial()
         {
             return View();
         }
 
         #region Products
-
+        [Authorize]
         public ActionResult LoadProductPartial()
         {
             List<SelectListItem> CategoryList = new List<SelectListItem>();
@@ -57,7 +59,7 @@ namespace IMS.WEB.UI.Controllers
             ViewBag.Category = CategoryList;
             return PartialView();
         }
-
+        [Authorize]
         public ActionResult LoadProductList(ProductsFilter filter)
         {
             if(filter.CategoryName == "-1" || filter.CategoryName == null)
@@ -112,14 +114,15 @@ namespace IMS.WEB.UI.Controllers
                 ProductList.Add(new SelectListItem
                 {
                     Text = model.ProductName,
-                    Value = model.ProductName
+                    Value = model.ProductName,
                 });
             }
-            ViewBag.Category = lookupFacade.GetLookupByKey("ProductCategory").Select(x =>
+            ViewBag.Categorylist = lookupFacade.GetLookupByKey("ProductCategory").Select(x =>
             new SelectListItem()
             {
                 Text = x.DisplayText.ToString(),
-                Value = x.DataValue.ToString()
+                Value = x.DataValue.ToString(),
+                Selected = model.Category == x.DataValue ? true : false
             }).ToList();
             ViewBag.ProductList = ProductList;
             return View(model);
@@ -134,6 +137,7 @@ namespace IMS.WEB.UI.Controllers
                 {
                     var oldProduct = productsFacade.Get(newProduct.Id);
                     oldProduct.ImageUrl = newProduct.ImageUrl;
+                    oldProduct.ProductNameBangla = newProduct.ProductNameBangla;
                     oldProduct.ProductName = newProduct.ProductName;
                     oldProduct.Quantity = newProduct.Quantity;
                     oldProduct.SellingPrice = newProduct.SellingPrice;
@@ -464,7 +468,7 @@ namespace IMS.WEB.UI.Controllers
                 Product product = productsFacade.GetAll().Where(x => x.ProductId == model.ProductId).FirstOrDefault();
                 ProductList.Add(new SelectListItem
                 {
-                    Text = product.ProductName,
+                    Text = product.ProductName + (product.ProductNameBangla != string.Empty ? " (" + product.ProductNameBangla + ")" : string.Empty),
                     Value = product.ProductId.ToString(),
                     Selected = true
                 });
@@ -605,7 +609,7 @@ namespace IMS.WEB.UI.Controllers
                        new SelectListItem()
                        {
                            Text = x.ProductId.ToString(),
-                           Value = x.ProductName.ToString()
+                           Value = x.ProductName.ToString() + (x.ProductNameBangla != string.Empty ? " (" + x.ProductNameBangla + ")" : string.Empty)
                        }).ToList());
             return Json(ProductList, JsonRequestBehavior.AllowGet);
         }

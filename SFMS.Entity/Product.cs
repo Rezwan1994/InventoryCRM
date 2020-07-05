@@ -12,6 +12,7 @@ namespace SFMS.Entity
     
         public Guid ProductId { get; set; }
         public string ProductName { get; set; }
+        public string ProductNameBangla { get; set; }
         public double BuyingPrice { get; set; }
 
         public double SellingPrice { get; set; }
