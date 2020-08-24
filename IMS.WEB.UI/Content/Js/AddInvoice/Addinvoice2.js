@@ -99,7 +99,8 @@ var CalculateNewAmount = function () {
             console.log(shippingCost);
         }
 
-        Fdiscountamount = TotalAmount - ((amount / 100) * discountAmount);
+    //Fdiscountamount = TotalAmount - ((amount / 100) * discountAmount);
+        Fdiscountamount = TotalAmount -  discountAmount;
         if (discountAmount != "" && Fdiscountamount > 0) {
             var discountAmountPercent = parseFloat(discountAmount);
             DiscountDBPercent = discountAmountPercent;
