@@ -17,9 +17,9 @@ namespace SFMS.Facade
         }
        
 
-        public List<PaymentReceive> GetAllPaymentReceiveByCustomerId(Guid CustomerId,string InvoiceType)
+        public List<PaymentReceive> GetAllPaymentReceiveByCustomerId(Guid CustomerId,string InvoiceType,string UserType)
         {
-            return PaymentRepository.GetAllPaymentReceiveByCustomerId(CustomerId, InvoiceType);
+            return PaymentRepository.GetAllPaymentReceiveByCustomerId(CustomerId, InvoiceType, UserType);
         }
 
         public PaymentReceive GetPaymentBySOId(Guid SalesOrderId)

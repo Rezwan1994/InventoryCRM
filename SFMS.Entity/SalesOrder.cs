@@ -24,7 +24,7 @@ namespace SFMS.Entity
         public DateTime? OrderDate { get; set; }
         public DateTime? DelivaryDate { get; set; }
         public DateTime? CreatedDate { get; set; }
-
+        public bool? IsForCustomer { get; set; }
         [NotMapped]
         public string PaymentNote { get; set; }
 
