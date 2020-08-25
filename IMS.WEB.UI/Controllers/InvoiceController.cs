@@ -44,7 +44,9 @@ namespace IMS.WEB.UI.Controllers
         {
             ViewBag.CustomerId = CustomerId;
             List<PaymentReceive> PaymentList = new List<PaymentReceive>();
-            PaymentList = payFacade.GetAllPaymentReceiveByCustomerId(CustomerId,InvoiceType);
+            Users user = userFacade.GetUserByUserId(CustomerId);
+
+            PaymentList = payFacade.GetAllPaymentReceiveByCustomerId(CustomerId,InvoiceType,user.UserType);
             return View(PaymentList);
         }
 
