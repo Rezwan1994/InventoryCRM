@@ -43,7 +43,8 @@
         @foreach (var item in Model) {
         <tr>
             @{ 
-                var InvoicId = "INV-" + $"{item.Id:000000}";
+                //var InvoicId = "INV-" + $"{item.Id:000000}";
+                var InvoicId = "INV-" + item.Id;
             }
             <td>
                 <a class="OpenInvoice" style="cursor:pointer" onclick="OpenInvoice('@item.SalesOrderId')">@InvoicId</a>
