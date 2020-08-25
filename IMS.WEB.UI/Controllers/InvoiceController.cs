@@ -18,6 +18,7 @@ namespace IMS.WEB.UI.Controllers
         WareHouseFacade wareHouseFacade = null;
         PWMFacade pWMFacade = null;
         ProductsFacade productsFacade = null;
+        UserFacade userFacade = null;
         public InvoiceController()
         {
             DataContext Context = DataContext.getInstance();
@@ -27,6 +28,7 @@ namespace IMS.WEB.UI.Controllers
             wareHouseFacade = new WareHouseFacade(Context);
             pWMFacade = new PWMFacade(Context);
             productsFacade = new ProductsFacade(Context);
+            userFacade = new UserFacade(Context);
         }
         public ActionResult Index()
         {
@@ -42,7 +44,9 @@ namespace IMS.WEB.UI.Controllers
         {
             ViewBag.CustomerId = CustomerId;
             List<PaymentReceive> PaymentList = new List<PaymentReceive>();
-            PaymentList = payFacade.GetAllPaymentReceiveByCustomerId(CustomerId,InvoiceType);
+            Users user = userFacade.GetUserByUserId(CustomerId);
+
+            PaymentList = payFacade.GetAllPaymentReceiveByCustomerId(CustomerId,InvoiceType,user.UserType);
             return View(PaymentList);
         }
 
@@ -88,6 +92,19 @@ namespace IMS.WEB.UI.Controllers
             SalesOrder salesOrder = new SalesOrder();
             bool result = false;
             string massege = "";
+            Users user = userFacade.GetUserByUserId(SalesOrderModel.SalesOrder.CustomerId);
+            if(user != null)
+            {
+                if(user.UserType == "Customer")
+                {
+                    SalesOrderModel.SalesOrder.IsForCustomer = true;
+                }
+                else
+                {
+                    SalesOrderModel.SalesOrder.IsForCustomer = false;
+                }
+            }
+
             try
             {
                 if (SalesOrderModel.SalesOrder.Id == 0)
