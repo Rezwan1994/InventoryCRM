@@ -17,7 +17,8 @@ namespace SFMS.Entity
         public double Tax { get; set; }
         public double Freight { get; set; }
         public double Total { get; set; }
-  
+        public bool IsForCustomer { get; set; }
+
     }
 
 

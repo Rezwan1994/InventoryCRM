@@ -55,6 +55,12 @@ namespace IMS.WEB.UI.Controllers
 
             SalesOrder salesOrder = new SalesOrder();
             SalesOrderModel salesOrderModel = new SalesOrderModel();
+            Users user = userFacade.GetUserByUserId(CustomerId);
+            if(user != null)
+            {
+
+                ViewBag.UserType = user.UserType;
+            }
 
             if (SalesOrderId != null && SalesOrderId != new Guid())
             {
@@ -126,13 +132,23 @@ namespace IMS.WEB.UI.Controllers
                             {
                                 item.SalesOrderDetailId = Guid.NewGuid();
                                 item.SalesOrderId = SalesOrderModel.SalesOrder.SalesOrderId;
-                                #region Product Deduct
-                               
+                                if(user.UserType == "Customer")
+                                {
+                                    #region Product Deduct
+                                    Product oldProduct = productsFacade.GetByProductId(item.ProductId);
+                                    oldProduct.Quantity = oldProduct.Quantity - item.Quantity;
+                                    productsFacade.Update(oldProduct);
+                                    #endregion
+                                }
+                                else
+                                {
+                                    #region Product Add
+                                    Product oldProduct = productsFacade.GetByProductId(item.ProductId);
+                                    oldProduct.Quantity = oldProduct.Quantity + item.Quantity;
+                                    productsFacade.Update(oldProduct);
+                                    #endregion
+                                }
 
-                                Product oldProduct = productsFacade.GetByProductId(item.ProductId);
-                                oldProduct.Quantity = oldProduct.Quantity - item.Quantity;
-                                productsFacade.Update(oldProduct);
-                                #endregion
                                 salesDetailFacade.Insert(item);
                             }
                         }
@@ -211,16 +227,31 @@ namespace IMS.WEB.UI.Controllers
                                 tempSalesOrderDetail.Total = item.Total;
                                 tempSalesOrderDetail.Amount = item.Amount;
                                 tempSalesOrderDetail.WarehouseId = item.WarehouseId;
-
-                                #region Product Deduct
-                              
-                                Product oldProduct = productsFacade.GetByProductId(item.ProductId);
-                                if (oldProduct != null)
+                                if(user.UserType == "Customer")
                                 {
-                                    oldProduct.Quantity = oldProduct.Quantity - item.Quantity;
-                                    productsFacade.Update(oldProduct);
+                                    #region Product Deduct
+
+                                    Product oldProduct = productsFacade.GetByProductId(item.ProductId);
+                                    if (oldProduct != null)
+                                    {
+                                        oldProduct.Quantity = oldProduct.Quantity - item.Quantity;
+                                        productsFacade.Update(oldProduct);
+                                    }
+                                    #endregion
                                 }
-                                #endregion
+                                else
+                                {
+                                    #region Product Addition
+
+                                    Product oldProduct = productsFacade.GetByProductId(item.ProductId);
+                                    if (oldProduct != null)
+                                    {
+                                        oldProduct.Quantity = oldProduct.Quantity + item.Quantity;
+                                        productsFacade.Update(oldProduct);
+                                    }
+                                    #endregion
+                                }
+
 
                                 salesDetailFacade.Insert(tempSalesOrderDetail);
                             }

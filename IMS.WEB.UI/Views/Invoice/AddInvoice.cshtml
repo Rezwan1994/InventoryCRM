@@ -13,6 +13,7 @@
     var SalesOrderIdInt = '@Model.SalesOrder.Id';
     var BalanceDue = '@Model.SalesOrder.Amount';
     var DefaultDate = '@DateTime.Now.ToString("MM/dd/yyyy")';
+    var UserType = '@ViewBag.UserType';
     $(document).ready(function () {
         if(SalesOrderId != '')
         {

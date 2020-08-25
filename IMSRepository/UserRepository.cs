@@ -58,5 +58,25 @@ namespace IMSRepository
             usersModel.TotalCount = TotalCount;
             return usersModel;
         }
+
+        public Users GetUserByUserId(Guid UserId)
+        {
+
+            Users user = new Users();
+
+            string rawQuery = @"Select * from Users where UserId= '{0}'";
+            rawQuery = string.Format(rawQuery, UserId);
+            try
+            {
+                var ctx = DataContext.getInstance();
+                user = ctx.Users.SqlQuery(rawQuery).ToList().FirstOrDefault();
+             
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return user;
+        }
     }
 }

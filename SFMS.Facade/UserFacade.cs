@@ -19,5 +19,9 @@ namespace SFMS.Facade
         {
             return userRepository.GetUsers(filter);
         }
+        public Users GetUserByUserId(Guid UserId)
+        {
+            return userRepository.GetUserByUserId(UserId);
+        }
     }
 }
