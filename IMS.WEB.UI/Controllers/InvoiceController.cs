@@ -207,10 +207,21 @@ namespace IMS.WEB.UI.Controllers
                             {
                                
                                 Product oldProduct = productsFacade.GetByProductId(item.ProductId);
-                                if (oldProduct != null)
+                                if (user.UserType == "Customer")
                                 {
-                                    oldProduct.Quantity = oldProduct.Quantity + item.Quantity;
-                                    productsFacade.Update(oldProduct);
+                                    if (oldProduct != null)
+                                    {
+                                        oldProduct.Quantity = oldProduct.Quantity + item.Quantity;
+                                        productsFacade.Update(oldProduct);
+                                    }
+                                }
+                                else
+                                {
+                                    if (oldProduct != null)
+                                    {
+                                        oldProduct.Quantity = oldProduct.Quantity - item.Quantity;
+                                        productsFacade.Update(oldProduct);
+                                    }
                                 }
 
                                 salesDetailFacade.Delete(item.Id);
