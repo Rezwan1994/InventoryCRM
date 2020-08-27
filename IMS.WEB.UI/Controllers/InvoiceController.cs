@@ -60,6 +60,7 @@ namespace IMS.WEB.UI.Controllers
             {
 
                 ViewBag.UserType = user.UserType;
+                ViewBag.UserName = user.Name;
             }
 
             if (SalesOrderId != null && SalesOrderId != new Guid())
