@@ -31,11 +31,21 @@ namespace SFMS.Entity
         [NotMapped]
         public DateTime? PaymentDate { get; set; }
         [NotMapped]
-        public double PaymentAmount { get; set; }
-     
+        public double? PaymentAmount { get; set; }
+
+        [NotMapped]
+        public string PaymentStatus { get; set; }
         [NotMapped]
 
-        public double BalanceDue { get; set; }
+        public double? BalanceDue { get; set; }
+
+        [NotMapped]
+
+        public string CustomerName { get; set; }
+
+        [NotMapped]
+
+        public int CusId { get; set; }
     }
 
     [NotMapped]

@@ -18,6 +18,14 @@ namespace SFMS.Entity
         public string Type { get; set; }
         public string status { get; set; }
     }
+    public class InvoiceFilter
+    {
+        public int? UnitPerPage { get; set; }
+        public int? PageNumber { get; set; }
+        public string SearchText { get; set; }
+        public string InvType { get; set; }
+    
+    }
     public class ProductsFilter
     {
         public int? UnitPerPage { get; set; }
@@ -52,7 +60,11 @@ namespace SFMS.Entity
         public List<Users> UsersList { get; set; }
         public int TotalCount { get; set; }
     }
-
+    public class InvoiceModel
+    {
+        public List<SalesOrderVM> InvList { get; set; }
+        public int TotalCount { get; set; }
+    }
     public class ProductsModel
     {
         public List<Product> ProductsList { get; set; }
