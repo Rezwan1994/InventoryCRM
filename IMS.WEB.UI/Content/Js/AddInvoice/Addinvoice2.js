@@ -421,13 +421,13 @@ $(document).ready(function () {
         field: $('.OrderDate')[0],
         //trigger: $('#ShippingDateArea')[0],
         format: 'MM/DD/YYYY',
-        firstDay: 1
+    
     });
     DeliveryDatePicker = new Pikaday({
         field: $('.DeliveryDate')[0],
         //trigger: $('#ShippingDateArea')[0],
         format: 'MM/DD/YYYY',
-        firstDay: 1
+ 
     });
     PaymentDatePicker = new Pikaday({
         field: $('#paymentdate')[0],

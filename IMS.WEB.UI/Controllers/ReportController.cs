@@ -16,11 +16,20 @@ namespace SmartFleetManagementSystem.Controllers
     public class ReportController : Controller
     {
         // GET: Report
+        UserFacade usersFacade = null;
+
         LookUpFacade lookupFacade = null;
+        SalesOrderFacade salesFacade = null;
+        PaymentFacade payFacade = null;
+        SalesOrderDetailsFacade salesDetailFacade = null;
         public ReportController()
         {
             DataContext Context = DataContext.getInstance();
             lookupFacade = new LookUpFacade(Context);
+            usersFacade = new UserFacade(Context);
+            salesFacade = new SalesOrderFacade(Context);
+            salesDetailFacade = new SalesOrderDetailsFacade(Context);
+            payFacade = new PaymentFacade(Context);
         }
         public ActionResult Index()
         {
@@ -31,7 +40,44 @@ namespace SmartFleetManagementSystem.Controllers
           
             return View();
         }
+        public ActionResult LoadCustomerInvReport(InvoiceFilter filter)
+        {
+            if (filter.PageNumber == 0)
+            {
+                filter.PageNumber = 1;
+            }
+            filter.UnitPerPage = 12;
 
+            if (filter.PageNumber == null || filter.PageNumber == 0)
+            {
+                filter.PageNumber = 1;
+            }
+            //UsersModel UsersList = usersFacade.GetUsers(filter);
+            InvoiceModel invList = salesFacade.GetSalesOrderReports(filter);
+            ViewBag.OutOfNumber = invList.TotalCount;
+            if ((int)ViewBag.OutOfNumber == 0)
+            {
+                ViewBag.Message = "No Content Available !";
+            }
+            if (@ViewBag.OutOfNumber == 0)
+            {
+                filter.PageNumber = 1;
+            }
+            ViewBag.PageNumber = filter.PageNumber;
+
+            if ((int)ViewBag.PageNumber * filter.UnitPerPage > (int)ViewBag.OutOfNumber)
+            {
+                ViewBag.CurrentNumber = (int)ViewBag.OutOfNumber;
+            }
+            else
+            {
+                ViewBag.CurrentNumber = (int)ViewBag.PageNumber * filter.UnitPerPage;
+            }
+
+            ViewBag.PageCount = Math.Ceiling((double)ViewBag.OutOfNumber / filter.UnitPerPage.Value);
+            return View(invList.InvList);
+          
+        }
         public ActionResult VehicleFilter()
         {
             #region ViewBags

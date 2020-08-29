@@ -18,7 +18,7 @@
     var InitialTotal = '@Model.SalesOrder.Total';
     
     $(document).ready(function () {
-        if(SalesOrderId != '')
+        if (SalesOrderId == '00000000-0000-0000-0000-000000000000' || SalesOrderId == '')
         {
             $("#paymentdate").val(DefaultDate);
             $(".DeliveryDate").val(DefaultDate);
