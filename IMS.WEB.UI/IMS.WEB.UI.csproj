@@ -354,6 +354,7 @@
     <Content Include="Views\Invoice\AddInvoice.cshtml" />
     <Content Include="Views\Invoice\InvoicePartial.cshtml" />
     <Content Include="Views\Invoice\InvoiceListPartial.cshtml" />
+    <Content Include="Views\Report\LoadCustomerInvReport.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

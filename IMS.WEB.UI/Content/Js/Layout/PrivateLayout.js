@@ -98,6 +98,7 @@ var LoadReports = function (reload) {
     var seturl = "/Reports";
     LoadUrlContents(loadurl, seturl, reload);
 }
+
 var LoadActivities = function (reload) {
     var loadurl = "/Activity/Activities";
     var seturl = "/Activities";
@@ -392,7 +393,19 @@ $(document).ready(function () {
         $('li a').removeClass("focus");
         $(this).addClass("focus");
     });
-
+    var flag = false;
+    $(".AllReportList").slideUp()
+    $("#LoadReport1").click(function () {
+        console.log("dsf")
+        if (flag == false) {
+            $(".AllReportList").slideDown();
+            flag = true;
+        }
+        else {
+            $(".AllReportList").slideUp();
+            flag = false;
+        }
+    })
     $("#AdvancedSearchBtn").click(function () {
         AdvancedSearchButtonClick();
     });

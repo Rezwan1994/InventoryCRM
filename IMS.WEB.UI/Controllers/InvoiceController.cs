@@ -60,6 +60,7 @@ namespace IMS.WEB.UI.Controllers
             {
 
                 ViewBag.UserType = user.UserType;
+                ViewBag.UserName = user.Name;
             }
 
             if (SalesOrderId != null && SalesOrderId != new Guid())
@@ -124,7 +125,7 @@ namespace IMS.WEB.UI.Controllers
                         SalesOrderModel.SalesOrder.WarehouseId = Guid.NewGuid();
                         SalesOrderModel.SalesOrder.OrderDate = DateTime.Now;
                         SalesOrderModel.SalesOrder.DelivaryDate = DateTime.Now;
-                        SalesOrderModel.SalesOrder.SubTotal = SalesOrderModel.SalesOrder.Amount - SalesOrderModel.SalesOrder.PaymentAmount;
+                        SalesOrderModel.SalesOrder.SubTotal = SalesOrderModel.SalesOrder.Amount - (SalesOrderModel.SalesOrder.PaymentAmount.HasValue ? SalesOrderModel.SalesOrder.PaymentAmount.Value : 0.0);
                         salesFacade.Insert(SalesOrderModel.SalesOrder);
                         if (SalesOrderModel.SalesOrderDetails.Count > 0)
                         {
@@ -158,8 +159,8 @@ namespace IMS.WEB.UI.Controllers
                         PaymentReceive payment = new PaymentReceive();
                         payment.PaymentId = Guid.NewGuid();
                         payment.SalesOrderId = SalesOrderModel.SalesOrder.SalesOrderId;
-                        payment.BalanceDue = SalesOrderModel.SalesOrder.Amount - SalesOrderModel.SalesOrder.PaymentAmount;
-                        payment.PaymentAmount = SalesOrderModel.SalesOrder.PaymentAmount;
+                        payment.BalanceDue = SalesOrderModel.SalesOrder.Amount - (SalesOrderModel.SalesOrder.PaymentAmount.HasValue? SalesOrderModel.SalesOrder.PaymentAmount.Value:0.0);
+                        payment.PaymentAmount = SalesOrderModel.SalesOrder.PaymentAmount.HasValue ? SalesOrderModel.SalesOrder.PaymentAmount.Value : 0.0;
                         if (payment.BalanceDue == 0)
                         {
                             payment.PaymentStatus = "Paid";
@@ -207,10 +208,21 @@ namespace IMS.WEB.UI.Controllers
                             {
                                
                                 Product oldProduct = productsFacade.GetByProductId(item.ProductId);
-                                if (oldProduct != null)
+                                if (user.UserType == "Customer")
                                 {
-                                    oldProduct.Quantity = oldProduct.Quantity + item.Quantity;
-                                    productsFacade.Update(oldProduct);
+                                    if (oldProduct != null)
+                                    {
+                                        oldProduct.Quantity = oldProduct.Quantity + item.Quantity;
+                                        productsFacade.Update(oldProduct);
+                                    }
+                                }
+                                else
+                                {
+                                    if (oldProduct != null)
+                                    {
+                                        oldProduct.Quantity = oldProduct.Quantity - item.Quantity;
+                                        productsFacade.Update(oldProduct);
+                                    }
                                 }
 
                                 salesDetailFacade.Delete(item.Id);
@@ -261,8 +273,8 @@ namespace IMS.WEB.UI.Controllers
 
                        
 
-                        oldPayment.BalanceDue = SalesOrderModel.SalesOrder.Amount - SalesOrderModel.SalesOrder.PaymentAmount;
-                        oldPayment.PaymentAmount = (oldPayment.PaymentAmount + SalesOrderModel.SalesOrder.PaymentAmount);
+                        oldPayment.BalanceDue = SalesOrderModel.SalesOrder.Amount - (SalesOrderModel.SalesOrder.PaymentAmount.HasValue ? SalesOrderModel.SalesOrder.PaymentAmount.Value: 0.0);
+                        oldPayment.PaymentAmount = (oldPayment.PaymentAmount + (SalesOrderModel.SalesOrder.PaymentAmount.HasValue ? SalesOrderModel.SalesOrder.PaymentAmount.Value: 0.0));
                         oldPayment.BalanceDue = SalesOrderModel.SalesOrder.Amount - oldPayment.PaymentAmount;
                         sales.SubTotal = oldPayment.BalanceDue;
                         salesFacade.Update(sales);

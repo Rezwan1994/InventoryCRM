@@ -139,6 +139,12 @@ var CalculateNewAmount = function () {
     $(".balanceDueAmount").text(BalanceDue.toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
     $(".amount-big").text(BalanceDue.toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
     $(".AmountWithDiscount").text(AmountWithDiscount.toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+
+    var unpaidamount = parseFloat($("#UnpaidAmount").html());
+    var givenamount = $("#paymentamount").val();
+    var Showamount = FinalTotal - givenamount;
+    Showamount = parseFloat(Showamount) - parseFloat(PaymentAmount);
+    $("#UnpaidAmount").html(Showamount);
 }
 
 var InvoiceEqSuggestionclickbind = function (item) {
@@ -415,13 +421,13 @@ $(document).ready(function () {
         field: $('.OrderDate')[0],
         //trigger: $('#ShippingDateArea')[0],
         format: 'MM/DD/YYYY',
-        firstDay: 1
+    
     });
     DeliveryDatePicker = new Pikaday({
         field: $('.DeliveryDate')[0],
         //trigger: $('#ShippingDateArea')[0],
         format: 'MM/DD/YYYY',
-        firstDay: 1
+ 
     });
     PaymentDatePicker = new Pikaday({
         field: $('#paymentdate')[0],
@@ -435,6 +441,9 @@ $(document).ready(function () {
 
     $("#shippingCost").change(function () {
     
+        CalculateNewAmount();
+    });
+    $("#paymentamount").blur(function () {
         CalculateNewAmount();
     });
     $("#CustomerInvoiceTab tbody").on('blur', 'tr', function (item) {

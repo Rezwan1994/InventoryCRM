@@ -14,8 +14,11 @@
     var BalanceDue = '@Model.SalesOrder.Amount';
     var DefaultDate = '@DateTime.Now.ToString("MM/dd/yyyy")';
     var UserType = '@ViewBag.UserType';
+    var PaymentAmount = '@Model.SalesOrder.PaymentAmount';
+    var InitialTotal = '@Model.SalesOrder.Total';
+    
     $(document).ready(function () {
-        if(SalesOrderId != '')
+        if (SalesOrderId == '00000000-0000-0000-0000-000000000000' || SalesOrderId == '')
         {
             $("#paymentdate").val(DefaultDate);
             $(".DeliveryDate").val(DefaultDate);
@@ -70,9 +73,17 @@
                 <tbody>
                     <tr>
                         <td>
-                            <label>Customer</label>
+                            @if (ViewBag.UserType == "Customer")
+                            {
+                                <label>Customer</label>
+                            }
+                            else
+                            {
+                                <label>Company</label>
+                            }
+
                         </td>
-                        <td> : Mark Henry</td>
+                        <td> : @ViewBag.UserName </td>
                         <td></td>
                         <td style="padding-left:35px">
                             <label>Payment Date</label>
@@ -410,7 +421,7 @@
                                     <td></td>
                                     <td></td>
                                     <td style="float:left">
-                                        <span class="span-style discount_text_custom">Discount(%) </span>
+                                        <span class="span-style discount_text_custom">Discount</span>
                                     </td>
                                     <td align="right">
                                         <input type="text" id="discountAmount" value="@Model.SalesOrder.DiscountAmount" class="float-right form-control" />
@@ -459,7 +470,7 @@
                         </table>
                         <div style=" float: right; width: 32.5%;" >
                             <span class="span-style Subtotal_text_custom"style="color:red;width: 297px;float:left;">Unpaid Amount</span>
-                            <span class="span-style">@Model.SalesOrder.SubTotal @Currency</span>
+                            <span class="span-style"><span id="UnpaidAmount">@Model.SalesOrder.SubTotal</span> @Currency</span>
                         </div>
                      
                         @*}*@
