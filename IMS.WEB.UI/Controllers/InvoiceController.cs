@@ -117,7 +117,7 @@ namespace IMS.WEB.UI.Controllers
                 if (SalesOrderModel.SalesOrder.Id == 0)
                 {
 
-                    if (SalesOrderModel.SalesOrder.PaymentAmount >= 0 && SalesOrderModel.SalesOrder.Total >= SalesOrderModel.SalesOrder.PaymentAmount)
+                    if ((SalesOrderModel.SalesOrder.PaymentAmount.HasValue ? SalesOrderModel.SalesOrder.PaymentAmount.Value:0.0) >= 0 && SalesOrderModel.SalesOrder.Total >= (SalesOrderModel.SalesOrder.PaymentAmount.HasValue ? SalesOrderModel.SalesOrder.PaymentAmount.Value : 0.0))
                     {
 
                         SalesOrderModel.SalesOrder.SalesOrderId = Guid.NewGuid();
