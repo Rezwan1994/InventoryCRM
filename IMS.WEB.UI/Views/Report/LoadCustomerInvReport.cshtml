@@ -8,10 +8,16 @@
   
     var NavigatePageListing = function (pagenumber, order) {
 
-    var searchText = $(".srch-term").val();
-
-    $("#LoadCusInvTab").load("/Report/LoadCustomerInvReport", { PageNumber: pagenumber, SearchText: searchText, Order: order });
-}
+        var searchText = $(".srch-term").val();
+           var filterText = $("#InvType").val();
+        if (IsForCustomer == true) {
+            $("#LoadCusInvTab").load("/Report/LoadCustomerInvReport", { PageNumber: pagenumber, SearchText: searchText, Order: order,FilterText:filterText, IsForCustomer: true });
+        }
+        else {
+             $("#LoadComInvTab").load("/Report/LoadCustomerInvReport", { PageNumber: pagenumber, SearchText: searchText, Order: order,FilterText:filterText, IsForCustomer: false });
+        }
+   
+    }
 
     $(document).ready(function () {
 
@@ -19,7 +25,13 @@
 
     })
 </script>
-
+<style>
+    .paginationtextdv{
+        float: left;
+        text-align: center;
+        padding: 7px 0px;
+    }
+</style>
 <div class="opportunities_table_container">
     <table class="opportunities_table">
         <thead>
@@ -65,9 +77,7 @@
                 <td>
                     <span>@item.PaymentStatus</span>
                 </td>
-                <td>
-                    <span>@item.PaymentStatus</span>
-                </td>
+              
                 <td>
                     <span>@item.PaymentDate</span>
                 </td>
@@ -86,6 +96,8 @@
 </div>
 
 <div class="opportunities_pagination_container">
+    <div class="paginationtextdv"><span>@ViewBag.ShowList out of @ViewBag.OutOfNumber</span></div>
+
     <div class="opportunities_pagination_inner">
         @if (ViewBag.PageCount == 1)
         {
