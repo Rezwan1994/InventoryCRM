@@ -37,7 +37,14 @@ namespace SmartFleetManagementSystem.Controllers
         }
         public ActionResult ReportsPartial()
         {
-          
+            List<SelectListItem> InvTypeList = new List<SelectListItem>();
+            InvTypeList.AddRange(lookupFacade.GetLookupByKey("InvoiceType").Select(x =>
+            new SelectListItem()
+            {
+                Text = x.DisplayText.ToString(),
+                Value = x.DataValue.ToString()
+            }).ToList());
+            ViewBag.InvTypeList = InvTypeList;
             return View();
         }
         public ActionResult LoadCustomerInvReport(InvoiceFilter filter)
@@ -46,8 +53,8 @@ namespace SmartFleetManagementSystem.Controllers
             {
                 filter.PageNumber = 1;
             }
-            filter.UnitPerPage = 12;
-
+            filter.UnitPerPage = 10;
+       
             if (filter.PageNumber == null || filter.PageNumber == 0)
             {
                 filter.PageNumber = 1;
@@ -55,6 +62,7 @@ namespace SmartFleetManagementSystem.Controllers
             //UsersModel UsersList = usersFacade.GetUsers(filter);
             InvoiceModel invList = salesFacade.GetSalesOrderReports(filter);
             ViewBag.OutOfNumber = invList.TotalCount;
+            ViewBag.ShowList = invList.InvList != null ? invList.InvList.Count:0;
             if ((int)ViewBag.OutOfNumber == 0)
             {
                 ViewBag.Message = "No Content Available !";

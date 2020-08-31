@@ -24,7 +24,9 @@ namespace SFMS.Entity
         public int? PageNumber { get; set; }
         public string SearchText { get; set; }
         public string InvType { get; set; }
-    
+        public string FilterText { get; set; }
+        public bool IsForCustomer { get; set; }
+
     }
     public class ProductsFilter
     {

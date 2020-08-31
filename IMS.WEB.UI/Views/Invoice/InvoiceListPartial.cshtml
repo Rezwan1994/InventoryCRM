@@ -22,52 +22,54 @@
             <th>
                 Payment Status
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Note)
-            </th>
-            <th>
-                Payment Date
-            </th>
-            @*<th>
-                @Html.DisplayNameFor(model => model.PaymentType)
-            </th>*@
+
             <th>
                 Payment Amount
             </th>
             <th>
                 Balance Due
             </th>
-          
+            <th>
+                Payment Date
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Note)
+            </th>
         </tr>
 
         @foreach (var item in Model) {
-        <tr>
-            @{ 
-                //var InvoicId = "INV-" + $"{item.Id:000000}";
-                var InvoicId = "INV-" + item.Id;
+    <tr>
+        @{
+            //var InvoicId = "INV-" + $"{item.Id:000000}";
+            var InvoicId = "INV-" + item.Id;
+        }
+        <td>
+            <a class="OpenInvoice" style="cursor:pointer" onclick="OpenInvoice('@item.SalesOrderId')">@InvoicId</a>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaymentStatus)
+        </td>
+
+
+        @*<td>
+            @Html.DisplayFor(modelItem => item.PaymentType)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.PaymentAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BalanceDue)
+        </td>
+        <td>
+            @if (item.PaymentDate != null && item.PaymentDate != new DateTime())
+            {
+                <span>@item.PaymentDate.ToString("MM/dd/yyyy")</span>
             }
-            <td>
-                <a class="OpenInvoice" style="cursor:pointer" onclick="OpenInvoice('@item.SalesOrderId')">@InvoicId</a>
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PaymentStatus)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Note)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PaymentDate)
-            </td>
-            @*<td>
-                @Html.DisplayFor(modelItem => item.PaymentType)
-            </td>*@
-            <td>
-                @Html.DisplayFor(modelItem => item.PaymentAmount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BalanceDue)
-            </td>
-        </tr>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Note)
+        </td>
+    </tr>
         }
 
     </table>

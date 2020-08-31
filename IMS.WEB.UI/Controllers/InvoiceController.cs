@@ -138,7 +138,10 @@ namespace IMS.WEB.UI.Controllers
                                     #region Product Deduct
                                     Product oldProduct = productsFacade.GetByProductId(item.ProductId);
                                     oldProduct.Quantity = oldProduct.Quantity - item.Quantity;
-                                    productsFacade.Update(oldProduct);
+                                    if(oldProduct.Quantity >0)
+                                    {
+                                        productsFacade.Update(oldProduct);
+                                    }
                                     #endregion
                                 }
                                 else
@@ -191,7 +194,7 @@ namespace IMS.WEB.UI.Controllers
                 {
                     PaymentReceive oldPayment = payFacade.GetPaymentBySOId(SalesOrderModel.SalesOrder.SalesOrderId);
                     SalesOrder sales = salesFacade.Get(SalesOrderModel.SalesOrder.Id);
-                    if (SalesOrderModel.SalesOrder.PaymentAmount >= 0 && sales.Amount >= (oldPayment.PaymentAmount + SalesOrderModel.SalesOrder.PaymentAmount))
+                    if ((SalesOrderModel.SalesOrder.PaymentAmount.HasValue? SalesOrderModel.SalesOrder.PaymentAmount.Value:0) >= 0 && sales.Amount >= (oldPayment.PaymentAmount + (SalesOrderModel.SalesOrder.PaymentAmount.HasValue ? SalesOrderModel.SalesOrder.PaymentAmount.Value : 0)))
                     {
                       
                         sales.OrderDate = SalesOrderModel.SalesOrder.OrderDate;

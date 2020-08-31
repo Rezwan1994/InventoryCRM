@@ -16,9 +16,9 @@ namespace SFMS.Facade
         {
             return productRepository.GetProducts(filter);
         }
-        public List<Product> GetProductsByKey(string key,string ExistEquipment)
+        public List<Product> GetProductsByKey(string key,string ExistEquipment,string from)
         {
-            return productRepository.GetProductsByKey(key,ExistEquipment);
+            return productRepository.GetProductsByKey(key,ExistEquipment, from);
         }
         public Product GetByProductId(Guid ProductId)
         {

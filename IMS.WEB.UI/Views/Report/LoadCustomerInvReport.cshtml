@@ -8,10 +8,16 @@
   
     var NavigatePageListing = function (pagenumber, order) {
 
-    var searchText = $(".srch-term").val();
-
-    $("#LoadCusInvTab").load("/Report/LoadCustomerInvReport", { PageNumber: pagenumber, SearchText: searchText, Order: order });
-}
+        var searchText = $(".srch-term").val();
+           var filterText = $("#InvType").val();
+        if (IsForCustomer == true) {
+            $("#LoadCusInvTab").load("/Report/LoadCustomerInvReport", { PageNumber: pagenumber, SearchText: searchText, Order: order,FilterText:filterText, IsForCustomer: true });
+        }
+        else {
+             $("#LoadComInvTab").load("/Report/LoadCustomerInvReport", { PageNumber: pagenumber, SearchText: searchText, Order: order,FilterText:filterText, IsForCustomer: false });
+        }
+   
+    }
 
     $(document).ready(function () {
 
@@ -19,7 +25,13 @@
 
     })
 </script>
-
+<style>
+    .paginationtextdv{
+        float: left;
+        text-align: center;
+        padding: 7px 0px;
+    }
+</style>
 <div class="opportunities_table_container">
     <table class="opportunities_table">
         <thead>
@@ -37,7 +49,11 @@
                     <div><i class="fa fa-angle-up icon_sort_timeclock" data-val="ascending/ligalowner"></i> <i class="fa fa-angle-down icon_sort_timeclock" data-val="descending/ligalowner"></i></div>
                 </th>
                 <th>
-                    <div>Payment Date</div>
+                    <div>Order Date</div>
+                    <div><i class="fa fa-angle-up icon_sort_timeclock" data-val="ascending/fuelsystem"></i> <i class="fa fa-angle-down icon_sort_timeclock" data-val="descending/fuelsystem"></i></div>
+                </th>
+                <th>
+                    <div>Delivary Date</div>
                     <div><i class="fa fa-angle-up icon_sort_timeclock" data-val="ascending/fuelsystem"></i> <i class="fa fa-angle-down icon_sort_timeclock" data-val="descending/fuelsystem"></i></div>
                 </th>
                 <th>
@@ -56,7 +72,7 @@
             {
             <tr>
                 <td>
-                    <a id="edit" >INV-@item.Id</a>
+                    <a id="edit">INV-@item.Id</a>
                 </td>
 
                 <td>
@@ -65,11 +81,20 @@
                 <td>
                     <span>@item.PaymentStatus</span>
                 </td>
+
                 <td>
-                    <span>@item.PaymentStatus</span>
+                    @if (item.OrderDate.HasValue && item.OrderDate != new DateTime())
+                    {
+                        <span>@item.OrderDate.Value.ToString("MM/dd/yyyy")</span>
+                    }
+
                 </td>
                 <td>
-                    <span>@item.PaymentDate</span>
+                    @if (item.DelivaryDate.HasValue && item.DelivaryDate != new DateTime())
+                    {
+                        <span>@item.DelivaryDate.Value.ToString("MM/dd/yyyy")</span>
+                    }
+
                 </td>
                 <td>
                     <span>@item.PaymentAmount</span>
@@ -86,6 +111,8 @@
 </div>
 
 <div class="opportunities_pagination_container">
+    <div class="paginationtextdv"><span>@ViewBag.ShowList out of @ViewBag.OutOfNumber</span></div>
+
     <div class="opportunities_pagination_inner">
         @if (ViewBag.PageCount == 1)
         {
