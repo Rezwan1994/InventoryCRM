@@ -23,6 +23,7 @@ namespace IMSRepository
         public DbSet<EmailHistory> EmailHistory { get; set; }
         public DbSet<UserLogin> UserLogin { get; set; }
         public DbSet<Users> Users { get; set; }
+        public DbSet<SalesReturn> SalesReturn { get; set; }
         private DataContext() { }
         public static DataContext context = null;
         public static DataContext getInstance()

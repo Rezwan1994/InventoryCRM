@@ -114,28 +114,32 @@
                         <a class="custom_color" href="/Users" id="LoadUsers" onclick="LoadUsers(true)"><i class="fa fa-address-book fa-fw"></i> Users</a>
                     </li>
                     <li>
-                        <a class="custom_color" href="/Products" id="LoadConcerns" onclick="LoadProducts(true)"><i class="fa fa-building"></i> Products</a>
+                        <a class="custom_color" href="/Products" id="LoadConcerns" onclick="LoadProducts(true)"><i class="fa fa-industry"></i> Products</a>
+                    </li>
+                    <li>
+                        <a class="custom_color" href="/salesreturn" id="LoadSalesReturns" onclick="LoadSalesReturns(true)"><i class="fa fa-exchange"></i> Sales Return</a>
+                    </li>
+                    
+                    @*<li>
+            <a class="custom_color" href="/Vehicles" id="LoadVehicles" onclick="LoadVehicle(true)"><i class="fa fa-car"></i> Vehicles</a>
+        </li>*@
+                    @*<li>
+            <a class="custom_color" href="/Drivers" id="LoadDrivers" onclick="LoadDrivers(true)"><i class="fa fa-user fa-fw"></i> Drivers</a>
+        </li>*@
+                    @*<li>
+            <a class="custom_color" href="/FuelSystems" id="LoadFuelSystems"><i class="fa fa-tasks"></i> Fuel System</a>
+        </li>*@
+                    <li>
+                        <a href="javascript:void(0)" class="custom_color" id="LoadReport1"><i class="fa fa-book fa-fw"></i>Reports</a>
+                        <ul class="nav subnav AllReportList">
+                            <li>
+                                <a class="custom_color" href="/Reports" onclick="LoadReports(true)" id=""><i class="fa fa-book fa-fw"></i>Invoice Report</a>
+                            </li>
+                        </ul>
                     </li>
                     @*<li>
-                        <a class="custom_color" href="/Vehicles" id="LoadVehicles" onclick="LoadVehicle(true)"><i class="fa fa-car"></i> Vehicles</a>
-                    </li>*@
-                    @*<li>
-                        <a class="custom_color" href="/Drivers" id="LoadDrivers" onclick="LoadDrivers(true)"><i class="fa fa-user fa-fw"></i> Drivers</a>
-                    </li>*@
-                    @*<li>
-                        <a class="custom_color" href="/FuelSystems" id="LoadFuelSystems"><i class="fa fa-tasks"></i> Fuel System</a>
-                    </li>*@
-                <li>
-                    <a href="javascript:void(0)" class="custom_color" id="LoadReport1"><i class="fa fa-book fa-fw"></i>Reports</a>
-                    <ul class="nav subnav AllReportList">
-                        <li>
-                            <a class="custom_color" href="/Reports" onclick="LoadReports(true)" id=""><i class="fa fa-book fa-fw"></i>Invoice Report</a>
-                        </li>
-                    </ul>
-                </li>
-                    @*<li>
-                        <a class="custom_color" href="/Settings" id="LoadSettings"><i class="fa fa-cog fa-fw"></i> Settings</a>
-                    </li>*@
+            <a class="custom_color" href="/Settings" id="LoadSettings"><i class="fa fa-cog fa-fw"></i> Settings</a>
+        </li>*@
                     <li>
                         <a href="/Logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                     </li>

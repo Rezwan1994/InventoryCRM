@@ -59,6 +59,11 @@ namespace SmartFleetManagementSystem
               defaults: new { controller = "Products", action = "Index", id = UrlParameter.Optional }
           );
             routes.MapRoute(
+                name: "SalesReturn",
+                url: "salesreturn",
+                defaults: new { controller = "SalesReturn", action = "Index", id = UrlParameter.Optional }
+                );
+            routes.MapRoute(
              name: "Home",
              url: "dashboards",
              defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

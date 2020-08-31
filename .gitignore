@@ -57,3 +57,6 @@
 /SFMS.Framework/obj/Debug/*.cache
 /SFMS.Framework/obj/Release/*.cache
 /SmartFleetManagementSystem/obj/Release/*.cache
+.vs/
+/.vs/
+/.vs
