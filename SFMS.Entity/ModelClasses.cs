@@ -18,6 +18,16 @@ namespace SFMS.Entity
         public string Type { get; set; }
         public string status { get; set; }
     }
+    public class InvoiceFilter
+    {
+        public int? UnitPerPage { get; set; }
+        public int? PageNumber { get; set; }
+        public string SearchText { get; set; }
+        public string InvType { get; set; }
+        public string FilterText { get; set; }
+        public bool IsForCustomer { get; set; }
+
+    }
     public class ProductsFilter
     {
         public int? UnitPerPage { get; set; }
@@ -27,6 +37,16 @@ namespace SFMS.Entity
         public string Type { get; set; }
         public string status { get; set; }
         public string CategoryName { get; set; }
+    }
+    public class SalesReturnFilter
+    {
+        public int? UnitPerPage { get; set; }
+        public int? PageNumber { get; set; }
+        public string Order { get; set; }
+        public string SearchText { get; set; }
+        public string Type { get; set; }
+        public string status { get; set; }
+        public string CompanyName { get; set; }
     }
     public class PWMsFilter
     {
@@ -52,10 +72,19 @@ namespace SFMS.Entity
         public List<Users> UsersList { get; set; }
         public int TotalCount { get; set; }
     }
-
+    public class InvoiceModel
+    {
+        public List<SalesOrderVM> InvList { get; set; }
+        public int TotalCount { get; set; }
+    }
     public class ProductsModel
     {
         public List<Product> ProductsList { get; set; }
+        public int TotalCount { get; set; }
+    }
+    public class SalesReturnModel
+    {
+        public List<SalesReturn> SalesReturnList { get; set; }
         public int TotalCount { get; set; }
     }
     public class PWMsModel

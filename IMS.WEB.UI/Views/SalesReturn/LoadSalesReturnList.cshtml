@@ -1,5 +1,5 @@
 ﻿
-@model IEnumerable<SFMS.Entity.Product>
+@model IEnumerable<SFMS.Entity.SalesReturn>
 @{
     Layout = null;
 }
@@ -102,49 +102,16 @@
         }
     }
 </style>
-<script>
-    var zoomImg = function (src) {
-        var modal = document.getElementById('myModal');
-        // Get the image and insert it inside the modal - use its "alt" text as a caption
-        var modalImg = document.getElementById("img01");
-        var captionText = document.getElementById("caption");
-        modal.style.display = "block";
-        modalImg.src = src;
-        $(".hide-tag").hide();
-    }
-    $(document).ready(function () {
-        // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("close_image")[0];
-        var modal = document.getElementById('myModal');
-        // When the user clicks on <span> (x), close the modal
-        span.onclick = function () {
-            modal.style.display = "none";
-            $(".hide-tag").show();
-        }
-    })
-</script>
-<div id="myModal" class="modal_image">
-    <span class="close_image">&times;</span>
-    <img class="modal-content_image" id="img01">
-    <div id="caption"></div>
-</div>
+
 <table class="opportunities_table">
     <thead>
         <tr>
-            <th style="width:35%;">
+            <th>
                 <div>Products</div>
                 <div><i class="fa fa-angle-up icon_sort_timeclock" data-val="ascending/make"></i> <i class="fa fa-angle-down icon_sort_timeclock" data-val="descending/make"></i></div>
             </th>
             <th>
-                <div>Images</div>
-                <div><i class="fa fa-angle-up icon_sort_timeclock" data-val="ascending/model"></i> <i class="fa fa-angle-down icon_sort_timeclock" data-val="descending/model"></i></div>
-            </th>
-            <th>
-                <div>TP/cartoon</div>
-                <div><i class="fa fa-angle-up icon_sort_timeclock" data-val="ascending/regid"></i> <i class="fa fa-angle-down icon_sort_timeclock" data-val="descending/regid"></i></div>
-            </th>
-            <th>
-                <div>TP/unit</div>
+                <div>Company Name</div>
                 <div><i class="fa fa-angle-up icon_sort_timeclock" data-val="ascending/ligalowner"></i> <i class="fa fa-angle-down icon_sort_timeclock" data-val="descending/ligalowner"></i></div>
             </th>
             <th>
@@ -161,30 +128,21 @@
     <tbody>
         @foreach (var item in Model)
         {
-            var productNameBangla = !string.IsNullOrEmpty(item.ProductNameBangla) ? ("(" + item.ProductNameBangla + ")") : string.Empty;
-        <tr>
-            <td>
-                <a id="edit" class="cus-anchor" onclick="EditUser(@item.Id)">@item.ProductName  @productNameBangla (@item.Category @*- @item.SubCategory*@)</a>
-            </td>
-            <td>
-                <span>
-                    <img id="myImg" src="@item.ImageUrl" alt="Snow" style="width:100%;max-width:100px; height:100px" onclick="zoomImg(this.src)">
-                </span>
-            </td>
-            <td>
-                <span>@item.BuyingPrice</span>
-            </td>
-            <td>
-                <span>@item.SellingPrice</span>
-            </td>
-            <td>
-                <span>@item.Quantity</span>
-            </td>
-            <td class="cplp_info_allign">
-                <a class="delete-package-Device" idval="@item.Id" id="" onclick="EditUser(@item.Id)"><i class="fa fa-edit"></i></a> |
-                <a class="delete-package-Device" idval="@item.Id" id="" onclick="DeleteUserConfirm(@item.Id)"><i class="fa fa-trash-o"></i></a>
-            </td>
-        </tr>
+            <tr>
+                <td>
+                    <a id="edit" class="cus-anchor" onclick="EditUser(@item.Id)">@item.ProductName</a>
+                </td>
+                <td>
+                    <span>@item.CompanyName</span>
+                </td>
+                <td>
+                    <span>@item.Quantity</span>
+                </td>
+                <td class="cplp_info_allign">
+                    <a class="delete-package-Device" idval="@item.Id" id="" onclick="EditUser(@item.Id)"><i class="fa fa-edit"></i></a> |
+                    <a class="delete-package-Device" idval="@item.Id" id="" onclick="DeleteUserConfirm(@item.Id)"><i class="fa fa-trash-o"></i></a>
+                </td>
+            </tr>
         }
     </tbody>
 
@@ -306,5 +264,6 @@
             }
         </div>*@
 </div>
+
 
 

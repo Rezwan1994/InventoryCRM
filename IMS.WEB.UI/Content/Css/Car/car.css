@@ -78,9 +78,7 @@
      .opportunities_table tbody tr td {
       border-bottom:1px solid #ddd;
    }
-     .opportunities_table thead tr th {
-         width:200px;
-     }
+
    .opportunities_table thead tr th,
    .opportunities_table tbody tr td {
        padding:10px;

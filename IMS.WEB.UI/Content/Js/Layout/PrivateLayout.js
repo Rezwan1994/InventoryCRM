@@ -98,6 +98,11 @@ var LoadReports = function (reload) {
     var seturl = "/Reports";
     LoadUrlContents(loadurl, seturl, reload);
 }
+var LoadSalesReturns = function (reload) {
+    var loadurl = "/SalesReturn/Index";
+    var seturl = "/salesreturn";
+    LoadUrlContents(loadurl, seturl, reload);
+}
 
 var LoadActivities = function (reload) {
     var loadurl = "/Activity/Activities";

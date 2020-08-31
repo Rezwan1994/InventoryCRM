@@ -62,6 +62,7 @@
     <Compile Include="Repository.cs" />
     <Compile Include="SalesOrderDetailsRepository.cs" />
     <Compile Include="SalesOrderRepository.cs" />
+    <Compile Include="SalesReturnRepository.cs" />
     <Compile Include="UserLoginRepository.cs" />
     <Compile Include="UserRepository.cs" />
     <Compile Include="WareHouseRepository.cs" />

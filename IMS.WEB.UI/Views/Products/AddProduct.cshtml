@@ -150,20 +150,20 @@
         </div>*@
 
     <div class="form-group clearfix">
-        <label>Buying Price</label>
+        <label>TP/cartoon</label>
         @Html.TextBoxFor(x => x.BuyingPrice, new { @class = "form-control", type = "text" })
         <label rel="Email" class="label hidden red position-absolute">* Please Enter Email</label>
     </div>
 
     <div class="form-group clearfix">
-        <label>Selling Price</label>
+        <label>TP/unit</label>
         @Html.TextBoxFor(x => x.SellingPrice, new { @class = "form-control", type = "text" })
         <label rel="Address" class="label hidden red position-absolute">* Please Enter Address</label>
     </div>
 
     <div class="form-group clearfix">
         <label>Quantity</label>
-        @Html.TextBoxFor(x => x.Quantity, new { @class = "form-control", type = "text" })
+        @Html.TextBoxFor(x => x.Quantity, new { @class = "form-control", type = "text",@disabled = "disabled"  })
         <label rel="Address" class="label hidden red position-absolute">* Please Enter Quantity</label>
     </div>
 

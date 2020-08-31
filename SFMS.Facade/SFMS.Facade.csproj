@@ -61,6 +61,7 @@
     <Compile Include="PWMFacade.cs" />
     <Compile Include="SalesOrderDetailsFacade.cs" />
     <Compile Include="SalesOrderFacade.cs" />
+    <Compile Include="SalesReturnFacade.cs" />
     <Compile Include="UserFacade.cs" />
     <Compile Include="UserLoginFacade.cs" />
     <Compile Include="WareHouseFacade.cs" />

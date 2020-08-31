@@ -1,0 +1,20 @@
+﻿@{
+    Layout = "~/Views/Shared/_PrivateLayout.cshtml";
+}
+<script>
+    $(document).ready(function () {
+        $(".LoaderWorkingDiv").hide();
+    })
+</script>
+
+
+@{
+    string url = Request.Url.AbsolutePath.ToLower();
+    if (url.IndexOf("/salesreturn") == 0)
+    {                 
+        ViewBag.Title = "Sales Return";
+        Html.RenderAction("SalesReturnPartial", "SalesReturn");
+    }
+
+}
+

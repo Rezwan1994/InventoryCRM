@@ -24,5 +24,9 @@ namespace SFMS.Facade
         {
             return salesorderRepository.GetSalesOrderBySalesOrderId(CustomerId);
         }
+        public InvoiceModel GetSalesOrderReports(InvoiceFilter filter)
+        {
+            return salesorderRepository.GetSalesOrderReports(filter);
+        }
     }
 }

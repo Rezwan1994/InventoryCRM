@@ -1,0 +1,81 @@
+﻿@{
+    Layout = null;
+}
+<link href="~/Content/Css/Car/car.css" rel="stylesheet" />
+<style>
+    .LoadReturnedProductTab {
+        border: 1px solid #ddd;
+        background-color: cadetblue;
+        padding: 6px;
+        width: 160px;
+        color: white;
+    }
+    .active {
+        background-color: #00467A;
+    }
+
+    .sub-list:not(:first-child) {
+        padding-left: 10px;
+    }
+
+    #Download {
+        float: right;
+    }
+
+    .item1:hover {
+        background-color: #DADADA;
+    }
+
+    .item2:hover {
+        background-color: #DADADA;
+    }
+
+    #searchbardiv {
+        margin-bottom: 10px;
+    }
+</style>
+<script>
+
+    //var TabsLoaderText = "<div class='invoice-loader'><div class='uil-squares-css' style='transform:scale(1); margin:auto;'><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div></div></div>";
+    var TabsLoaderText = "";
+    $(document).ready(function () {
+        $(".LoaderWorkingDiv").hide();
+        $("#LoadReturnedProductTab").html(TabsLoaderText);
+        $("#LoadReturnedProductTab").load("/SalesReturn/LoadSalesReturnPartial");
+
+        $("#LoadReturnedProductTab").addClass("active");
+        $(".LoadReturnedProductTab").click(function () {
+            $("#LoadReturnedProductTab").html(TabsLoaderText);
+            $("#LoadReturnedProductTab").load("/SalesReturn/LoadSalesReturnPartial");
+            $("#LoadReturnedProductTab").addClass("active");
+        });
+    });
+
+</script>
+<link href="~/Content/Css/Report/Report.css" rel="stylesheet" />
+<div class="ReportsTitle">Sales Return</div>
+
+<div class="col-xs-12 Report-Tabs">
+    <div class="nav-detail-contents">
+        <div class="">
+            <div id="searchbardiv" class="row">
+                <div class="col-md-6">
+                </div>
+            </div>
+        </div>
+
+
+        <ul class="nav nav-tabs reports-tabs" id="myTab">
+            <li class="active LoadReturnedProductTab">
+                <a data-target="#LoadReturnedProductTab  .active" data-toggle="tab">Returned Product</a>
+            </li>
+        </ul>
+        <div class="tab-content reports_tab_content">
+            <div class="tab-pane active" id="LoadReturnedProductTab">
+
+            </div>
+        </div>
+    </div>
+
+</div>
+

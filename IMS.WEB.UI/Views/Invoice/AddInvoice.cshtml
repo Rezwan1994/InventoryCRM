@@ -16,7 +16,7 @@
     var UserType = '@ViewBag.UserType';
     var PaymentAmount = '@Model.SalesOrder.PaymentAmount';
     var InitialTotal = '@Model.SalesOrder.Total';
-    
+   
     $(document).ready(function () {
         if (SalesOrderId == '00000000-0000-0000-0000-000000000000' || SalesOrderId == '')
         {
@@ -104,7 +104,7 @@
                             <span class="span-style">Payment Amount</span>
                         </td>
                         <td>
-                            <input type="text" class="form-control" id="paymentamount" />
+                            <input type="number" class="form-control" id="paymentamount" />
                         </td>
                     </tr>
                     <tr style="border-bottom: 1px dashed;" class="spaceUnder">
@@ -470,6 +470,7 @@
                         </table>
                         <div style=" float: right; width: 32.5%;" >
                             <span class="span-style Subtotal_text_custom"style="color:red;width: 297px;float:left;">Unpaid Amount</span>
+                            
                             <span class="span-style"><span id="UnpaidAmount">@Model.SalesOrder.SubTotal</span> @Currency</span>
                         </div>
                      

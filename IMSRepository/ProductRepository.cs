@@ -68,12 +68,16 @@ namespace IMSRepository
         }
 
 
-        public List<Product> GetProductsByKey(string Key,string ExistEquipment)
+        public List<Product> GetProductsByKey(string Key,string ExistEquipment,string from)
         {
             string searchTextQuery = "";
         
             string CountTextQuery = "";
-
+            string SubQuery = "";
+            if(!string.IsNullOrEmpty(from) && from == "Customer")
+            {
+                SubQuery = " and c.Quantity > 0";
+            }
             if (!string.IsNullOrWhiteSpace(Key))
             {
                 searchTextQuery = " c.ProductName like '%" + Key + "%' or c.Category like '%" + Key + "%' or c.SubCategory like '%" + Key + "%' or c.Quantity like '%" + Key + "%' ";
@@ -84,7 +88,7 @@ namespace IMSRepository
                                 select c.*,c.Quantity as QuantityOnHand 
                                 from Products c 
                                
-                                where   ({0}){1}
+                                where   ({0}){1} {2}
                                ";
             var EqpExist = "";
             if (!string.IsNullOrEmpty(ExistEquipment))
@@ -94,7 +98,7 @@ namespace IMSRepository
 
             string CountQuery = string.Format("Select * from Products c {0}", CountTextQuery);
 
-            rawQuery = string.Format(rawQuery,searchTextQuery, EqpExist);
+            rawQuery = string.Format(rawQuery,searchTextQuery, EqpExist, SubQuery);
             int TotalCount = 0;
             List<Product> dsResult = new List<Product>();
             try
