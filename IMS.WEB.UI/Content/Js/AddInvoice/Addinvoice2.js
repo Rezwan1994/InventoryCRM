@@ -74,54 +74,54 @@ var CalculateNewAmount = function () {
     TotalAmount = amount;
     FinalTotal = amount;
     BalanceDue = amount;
-  
-        var a = 0;
-        var Fval = 0;
-        var discountAmount = 0;
-        var shippingCost = 0;
-        var AmountWithDiscount = 0;
-        if ($("#discountAmount").length > 0) {
-            if ($("#discountAmount").val() == "") {
-                discountAmount = 0;
-            }
-            else {
-                discountAmount = $("#discountAmount").val();
-            }
-        }
-        if ($("#shippingCost").length > 0) {
-        if ($("#shippingCost").val() == "") {
-            shippingCost = 0;
-            }
-            else {
-            shippingCost = $("#shippingCost").val();
-            }
 
-            console.log(shippingCost);
-        }
-
-    //Fdiscountamount = TotalAmount - ((amount / 100) * discountAmount);
-        Fdiscountamount = TotalAmount -  discountAmount;
-        if (discountAmount != "" && Fdiscountamount > 0) {
-            var discountAmountPercent = parseFloat(discountAmount);
-            DiscountDBPercent = discountAmountPercent;
-            DiscountDBAmount = a;
-            DiscountAmount = (amount / 100) * discountAmountPercent;
-            FinalTotal = TotalAmount - DiscountAmount;
-            BalanceDue = FinalTotal;
-            $(".shippingAmountTxt").text(DiscountAmount.toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-            if (DiscountAmount == 0) {
-                $(".Discount-total").addClass('hidden');
-            }
-            else {
-                $(".DiscountAmountTxt").text(Fdiscountamount.toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-            }
+    var a = 0;
+    var Fval = 0;
+    var discountAmount = 0;
+    var shippingCost = 0;
+    var AmountWithDiscount = 0;
+    if ($("#discountAmount").length > 0) {
+        if ($("#discountAmount").val() == "") {
+            discountAmount = 0;
         }
         else {
-            $(".shippingAmountTxt").text( "0.00");
-            $("#discountAmount").val("");
-            $(".DiscountAmountTxt").text( "0.00");
+            discountAmount = $("#discountAmount").val();
         }
- 
+    }
+    if ($("#shippingCost").length > 0) {
+        if ($("#shippingCost").val() == "") {
+            shippingCost = 0;
+        }
+        else {
+            shippingCost = $("#shippingCost").val();
+        }
+
+        console.log(shippingCost);
+    }
+
+    //Fdiscountamount = TotalAmount - ((amount / 100) * discountAmount);
+    Fdiscountamount = TotalAmount - discountAmount;
+    if (discountAmount != "" && Fdiscountamount > 0) {
+        var discountAmountPercent = parseFloat(discountAmount);
+        DiscountDBPercent = discountAmountPercent;
+        DiscountDBAmount = a;
+        DiscountAmount = (amount / 100) * discountAmountPercent;
+        FinalTotal = TotalAmount - DiscountAmount;
+        BalanceDue = FinalTotal;
+        $(".shippingAmountTxt").text(DiscountAmount.toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+        if (DiscountAmount == 0) {
+            $(".Discount-total").addClass('hidden');
+        }
+        else {
+            $(".DiscountAmountTxt").text(Fdiscountamount.toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+        }
+    }
+    else {
+        $(".shippingAmountTxt").text("0.00");
+        $("#discountAmount").val("");
+        $(".DiscountAmountTxt").text("0.00");
+    }
+
     var DA = 0;
 
     if ($("#discountAmount").val() != "") {
@@ -139,10 +139,17 @@ var CalculateNewAmount = function () {
     $(".balanceDueAmount").text(BalanceDue.toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
     $(".amount-big").text(BalanceDue.toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
     $(".AmountWithDiscount").text(AmountWithDiscount.toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-
+    console.log("shauker");
     var unpaidamount = parseFloat($("#UnpaidAmount").html());
-    var givenamount = $("#paymentamount").val();
+    var givenamount = 0;
+    if ($("#paymentamount").val() != "" && $("#paymentamount").val() != 'undefined') {
+        givenamount = $("#paymentamount").val();
+    }
+
     var Showamount = FinalTotal - givenamount;
+    if (PaymentAmount == "") {
+        PaymentAmount = 0;
+    }
     Showamount = parseFloat(Showamount) - parseFloat(PaymentAmount);
     $("#UnpaidAmount").html(Showamount);
 }
@@ -292,7 +299,8 @@ var SearchKeyUp = function (item, event) {
         url: "/Products/GetEquipmentListByKey",
         data: {
             key: $(item).val(),
-            ExistEquipment: ExistEquipment
+            ExistEquipment: ExistEquipment,
+            from: UserType
          
         },
         contentType: "application/json; charset=utf-8",
@@ -417,6 +425,7 @@ $(document).ready(function () {
     //$("#CustomerInvoiceTab tbody").on('focusout', 'input.ProductName', function () {
     //    $(".tt-menu").hide();
     //});
+    //CalculateNewAmount();
     OrderDatePicker = new Pikaday({
         field: $('.OrderDate')[0],
         //trigger: $('#ShippingDateArea')[0],

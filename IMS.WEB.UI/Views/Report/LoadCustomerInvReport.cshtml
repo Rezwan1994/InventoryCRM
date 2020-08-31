@@ -49,7 +49,11 @@
                     <div><i class="fa fa-angle-up icon_sort_timeclock" data-val="ascending/ligalowner"></i> <i class="fa fa-angle-down icon_sort_timeclock" data-val="descending/ligalowner"></i></div>
                 </th>
                 <th>
-                    <div>Payment Date</div>
+                    <div>Order Date</div>
+                    <div><i class="fa fa-angle-up icon_sort_timeclock" data-val="ascending/fuelsystem"></i> <i class="fa fa-angle-down icon_sort_timeclock" data-val="descending/fuelsystem"></i></div>
+                </th>
+                <th>
+                    <div>Delivary Date</div>
                     <div><i class="fa fa-angle-up icon_sort_timeclock" data-val="ascending/fuelsystem"></i> <i class="fa fa-angle-down icon_sort_timeclock" data-val="descending/fuelsystem"></i></div>
                 </th>
                 <th>
@@ -68,7 +72,7 @@
             {
             <tr>
                 <td>
-                    <a id="edit" >INV-@item.Id</a>
+                    <a id="edit">INV-@item.Id</a>
                 </td>
 
                 <td>
@@ -77,9 +81,20 @@
                 <td>
                     <span>@item.PaymentStatus</span>
                 </td>
-              
+
                 <td>
-                    <span>@item.PaymentDate</span>
+                    @if (item.OrderDate.HasValue && item.OrderDate != new DateTime())
+                    {
+                        <span>@item.OrderDate.Value.ToString("MM/dd/yyyy")</span>
+                    }
+
+                </td>
+                <td>
+                    @if (item.DelivaryDate.HasValue && item.DelivaryDate != new DateTime())
+                    {
+                        <span>@item.DelivaryDate.Value.ToString("MM/dd/yyyy")</span>
+                    }
+
                 </td>
                 <td>
                     <span>@item.PaymentAmount</span>
